@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# Print welcoming banner.
 print -P "$(cat <<EOF
 %B\
 %F{2}                        ..'
@@ -23,7 +24,36 @@ EOF
 )
 "
 
+# Runs only on Zsh, MacOS.
 case "$OSTYPE" in
 	darwin*) ;;
 	*) print -P "%F{red}%BRingo is for MacOS only. Exiting...%b%f" >&2; return 1 ;;
 esac
+
+# Set XDG Base Directories.
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+
+# China net checker.
+function is_china_internet() {
+	# Check for lock file.
+	if [[ -e "$XDG_CACHE_HOME/is-china-internet.lock" ]]; then
+		return 0;
+	fi
+
+	# Check for country code.
+	local country_code="$(curl -fs --max-time 3 "https://api.country.is" | jq -r ".country" 2>/dev/null)"
+	[[ "${country_code:-CN}" == "CN" ]]
+}
+if is_china_internet; then
+	# Create lock file.
+	touch "$XDG_CACHE_HOME/is-china-internet.lock"
+	# Set brew formulae/cask index mirror.
+	export HOMEBREW_BREW_GIT_REMOTE="https://mirror.nju.edu.cn/git/homebrew/brew.git"
+	export HOMEBREW_CORE_GIT_REMOTE="https://mirror.nju.edu.cn/git/homebrew/homebrew-core.git"
+	# Set brew bottle metadata/content mirror.
+	export HOMEBREW_API_DOMAIN="https://mirror.nju.edu.cn/homebrew-bottles/api"
+	export HOMEBREW_BOTTLE_DOMAIN="https://mirror.nju.edu.cn/homebrew-bottles"
+fi
