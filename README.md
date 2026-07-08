@@ -21,7 +21,7 @@ git clone https://github.com/lancy69/dots-ringo.git ~/.dots-ringo && cd ~/.dots-
 Users in China may clone from the Chinese mirror instead.
 
 ```zsh
-git clone https://gitee.com/lancy69/dots-ringo.git ~/.dots-ringo && cd ~/.dots.ringo
+git clone https://gitee.com/lancy69/dots-ringo.git ~/.dots-ringo && cd ~/.dots-ringo
 ```
 
 3. Source the Zsh script.
