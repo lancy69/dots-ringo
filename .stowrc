@@ -1,0 +1,4 @@
+--dotfiles
+--ignore='^\.stowrc$'
+--ignore='^install\.zsh$'
+--target="$HOME"
