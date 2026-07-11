@@ -14,4 +14,16 @@ brew "tlrc"
 brew "yazi"
 brew "zoxide"
 
+cask "clash-verge-rev"
+cask "codex-app"
+cask "font-libertinus"
+cask "font-noto-color-emoji"
+cask "font-noto-emoji"
+cask "font-noto-sans-cjk-sc"
+cask "font-noto-serif-cjk-sc"
+cask "ghostty"
+cask "iina"
+cask "transmission"
+cask "zen"
+
 # vim:ft=ruby
