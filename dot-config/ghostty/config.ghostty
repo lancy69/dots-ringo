@@ -1,0 +1,13 @@
+font-family = "Maple Mono NFMono CN"
+font-family = "Noto Emoji"
+font-feature = "-calt, +cv01, +cv02, +cv04"
+font-size = 15
+
+macos-non-native-fullscreen = visible-menu
+
+theme = "TokyoNight Storm"
+
+window-height = 36
+window-width = 120
+window-padding-x = 36
+window-padding-y = 36
