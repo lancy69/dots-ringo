@@ -1,4 +1,5 @@
 --dotfiles
 --ignore='^\.stowrc$'
 --ignore='^install\.zsh$'
+--ignore='^thumbnail\.png$'
 --target="$HOME"

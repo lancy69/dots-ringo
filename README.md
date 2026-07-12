@@ -1,6 +1,4 @@
-# dots-ringo
-
-My MacOS configurations.
+![](thumbnail.png)
 
 ## Installation
 
