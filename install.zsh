@@ -28,10 +28,10 @@ EOF
 )
 "
 
-# Runs only on Zsh, MacOS.
-case "$OSTYPE" in
-	darwin*) ;;
-	*) print -P "%B%F{1}[ERROR] Ringo is for MacOS only. Exiting...%f%b" >&2; exit 1 ;;
+# Runs only on Zsh, MacOS, Apple Silicon.
+if [[ "$OSTYPE" != darwin* ]] || [[ $(sysctl -n "hw.optional.arm64" &>/dev/null) != 1 ]]; then
+	print -P "%B%F{1}[ERROR] Ringo is for MacOS only. Exiting...%f%b"
+	exit 1
 esac
 
 ringo_dir="${RINGO_DIR:-$HOME/.dots-ringo}"
@@ -48,11 +48,7 @@ if ! (( $+commands[brew] )); then
 	bash "$brew_dir/install.sh"
 	rm -rf "$brew_dir"
 
-	if [[ -x "/opt/homebrew/bin/brew" ]]; then
-		eval "$(/opt/homebrew/bin/brew shellenv)"
-	else
-		eval "$(/usr/local/bin/brew shellenv)"
-	fi
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 brew install "stow"
