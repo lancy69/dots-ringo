@@ -36,9 +36,13 @@ export HOMEBREW_PIP_INDEX_URL="https://mirror.nju.edu.cn/pypi/web/simple"
 export HOMEBREW_BUNDLE_FILE="$HOME/.brewrc"
 
 # Setup shell intregration for brew.
-[[ -x "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -x "/opt/homebrew/bin/brew" ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x "/usr/local/bin/brew" ]]; then
+	eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 # Source plugin scripts, setup every program.
-for plugin in "$XDG_CONFIG_HOME/zsh/plugins"/*.zsh; do
+for plugin in "$XDG_CONFIG_HOME/zsh/plugins"/*.zsh(N); do
 	source "$plugin"
 done
