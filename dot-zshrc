@@ -8,6 +8,8 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 # Set default editor in terminal.
 export EDITOR="nvim"
 export VISUAL="nvim"
+# Set default man pager.
+export MANPAGER="nvim +Man!"
 
 # Set brew formulae/cask index mirror.
 export HOMEBREW_BREW_GIT_REMOTE="https://mirror.nju.edu.cn/git/homebrew/brew.git"
