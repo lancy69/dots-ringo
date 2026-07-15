@@ -46,3 +46,11 @@ fi
 for plugin in "$XDG_CONFIG_HOME/zsh/plugins"/*.zsh(N); do
 	source "$plugin"
 done
+
+# Enable Vi mode.
+bindkey -v
+export KEYTIMEOUT=10
+# Edit current command with default editor in Vi mode.
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
