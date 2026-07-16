@@ -1,6 +1,7 @@
 brew "bash"
 brew "bat"
 brew "btop"
+brew "colima"
 brew "devcontainer"
 brew "docker"
 brew "docker-buildx"
