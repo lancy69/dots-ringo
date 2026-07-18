@@ -24,24 +24,33 @@ export VISUAL="nvim"
 # Set default man pager.
 export MANPAGER="nvim +Man!"
 
-# Set brew formulae/cask index mirror.
-export HOMEBREW_BREW_GIT_REMOTE="https://mirror.nju.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirror.nju.edu.cn/git/homebrew/homebrew-core.git"
-# Set brew bottle metadata/content mirror.
-export HOMEBREW_API_DOMAIN="https://mirror.nju.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirror.nju.edu.cn/homebrew-bottles"
-# Set the default pip index url used by brew.
-export HOMEBREW_PIP_INDEX_URL="https://mirror.nju.edu.cn/pypi/web/simple"
-# Set the default brew bundle file.
-export HOMEBREW_BUNDLE_FILE="$HOME/.brewrc"
+# Set up brew, only for first login.
+if [[ -z "$HOMEBREW_PREFIX" ]] && [[ -x "/opt/homebrew/bin/brew" ]]; then
+	# Set brew formulae/cask index mirror.
+	export HOMEBREW_BREW_GIT_REMOTE="https://mirror.nju.edu.cn/git/homebrew/brew.git"
+	export HOMEBREW_CORE_GIT_REMOTE="https://mirror.nju.edu.cn/git/homebrew/homebrew-core.git"
+	# Set brew bottle metadata/content mirror.
+	export HOMEBREW_API_DOMAIN="https://mirror.nju.edu.cn/homebrew-bottles/api"
+	export HOMEBREW_BOTTLE_DOMAIN="https://mirror.nju.edu.cn/homebrew-bottles"
+	# Set the default pip index url used by brew.
+	export HOMEBREW_PIP_INDEX_URL="https://mirror.nju.edu.cn/pypi/web/simple"
+	# Set the default brew bundle file.
+	export HOMEBREW_BUNDLE_FILE="$HOME/.brewrc"
 
-# Setup shell intregration for brew.
-[[ -x "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+	# Setup shell intregration for brew.
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+prepend_path() {
+	[[ -z "$1" ]] || (( $path[(Ie)$1] )) || path=("$1" $path)
+}
 
 # Source plugin scripts, setup every program.
 for plugin in "$XDG_CONFIG_HOME/zsh/plugins"/*.zsh(N); do
 	source "$plugin"
 done
+
+unfunction prepend_path
 
 # Enable Vi mode.
 bindkey -v
