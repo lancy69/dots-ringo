@@ -56,12 +56,23 @@ vim.opt.foldmethod = "marker"
 
 -- Plugins {{{
 
--- Colorscheme
-vim.pack.add({ "https://github.com/folke/tokyonight.nvim" })
+vim.pack.add({{
+	name = "tokyonight.nvim",
+	src = "https://github.com/folke/tokyonight.nvim",
+}})
 vim.cmd.colorscheme("tokyonight-storm")
 
--- File Explorer
-vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
+vim.pack.add({{
+	name = "mini.nvim",
+	src = "https://github.com/nvim-mini/mini.nvim",
+}})
+require("mini.icons").setup()
+MiniIcons.mock_nvim_web_devicons()
+
+vim.pack.add({{
+	name = "oil.nvim",
+	src = "https://github.com/stevearc/oil.nvim",
+}})
 require("oil").setup()
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory." })
 
