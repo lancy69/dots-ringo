@@ -95,6 +95,49 @@ vim.pack.add({{
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
 
+-- barbar.nvim
+-- A customizable, feature-rich tabline.
+vim.g.barbar_auto_setup = false
+vim.pack.add({{
+	name = "barbar.nvim",
+	src = "https://github.com/romgrk/barbar.nvim",
+}})
+require("barbar").setup({})
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>", opts)
+vim.keymap.set("n", "<Leader>2", "<Cmd>BufferGoto 2<CR>", opts)
+vim.keymap.set("n", "<Leader>3", "<Cmd>BufferGoto 3<CR>", opts)
+vim.keymap.set("n", "<Leader>4", "<Cmd>BufferGoto 4<CR>", opts)
+vim.keymap.set("n", "<Leader>5", "<Cmd>BufferGoto 5<CR>", opts)
+vim.keymap.set("n", "<Leader>6", "<Cmd>BufferGoto 6<CR>", opts)
+vim.keymap.set("n", "<Leader>7", "<Cmd>BufferGoto 7<CR>", opts)
+vim.keymap.set("n", "<Leader>8", "<Cmd>BufferGoto 8<CR>", opts)
+vim.keymap.set("n", "<Leader>9", "<Cmd>BufferGoto 9<CR>", opts)
+vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLast<CR>", opts)
+
+-- lualine.nvim
+-- A blazing fast and easy to configure Neovim statusline.
+vim.pack.add({{
+	name = "lualine.nvim",
+	src = "https://github.com/nvim-lualine/lualine.nvim",
+}})
+
+require("lualine").setup({
+	options = {
+		component_separators = { left = " ", right = " " },
+		secton_separators = { left = "", right = "" },
+	},
+	sections = {
+		lualine_a = { { "mode", separator = { left = "", right = "" } } },
+		lualine_b = { { "branch", "diff", "diagnostics", separator = { right = "" } } },
+		lualine_c = { "filename" },
+		lualine_x = { "filetype" },
+		lualine_y = { { "progress", separator = { left = "" } } },
+		lualine_z = { { "location", separator = { left = "", right = "" } } },
+	},
+})
+
 -- gitsigns.nvim
 -- Shows Git changes in the sign column and provides Git-aware actions.
 vim.pack.add({{
