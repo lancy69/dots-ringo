@@ -207,14 +207,6 @@ vim.pack.add({{
 }})
 require("gitsigns").setup()
 
--- guess-indent.nvim
--- Automatically detects indentation settings for each buffer.
-vim.pack.add({{
-	name = "guess-indent.nvim",
-	src = "https://github.com/nmac427/guess-indent.nvim",
-}})
-require("guess-indent").setup()
-
 -- todo-comments.nvim
 -- Highlights and searches TODO-style annotations in comments.
 vim.pack.add({{
@@ -222,6 +214,14 @@ vim.pack.add({{
 	src = "https://github.com/folke/todo-comments.nvim",
 }})
 require("todo-comments").setup({ signs = false })
+
+-- guess-indent.nvim
+-- Automatically detects indentation settings for each buffer.
+vim.pack.add({{
+	name = "guess-indent.nvim",
+	src = "https://github.com/nmac427/guess-indent.nvim",
+}})
+require("guess-indent").setup()
 
 -- oil.nvim
 -- A file explorer that lets directories be edited like normal buffers.
