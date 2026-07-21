@@ -95,6 +95,14 @@ vim.pack.add({{
 	name = "tokyonight.nvim",
 	src = "https://github.com/folke/tokyonight.nvim",
 }})
+require("tokyonight").setup({
+	on_highlights = function(hl, c)
+		hl.BufferLineIndicatorSelected = {
+			bg = c.bg,
+			fg = c.git.change,
+		}
+	end
+})
 vim.cmd.colorscheme("tokyonight-storm")
 
 -- mini.nvim
