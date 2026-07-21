@@ -1,4 +1,7 @@
--- Basics {{{
+-- =============================================================================
+-- SECTION 1: Basics
+-- Core settings, globals and options.
+-- =============================================================================
 
 -- Experimental. Load modules faster.
 vim.loader.enable()
@@ -52,9 +55,10 @@ vim.opt.winborder = "rounded"
 -- Fold by markers. Split large file into smaller sections (like this one).
 vim.opt.foldmethod = "marker"
 
--- }}}
-
--- Keymaps {{{
+-- =============================================================================
+-- SECTION 2: Keymaps
+-- General keymaps that make life easier. Plugins should set their own keymaps.
+-- =============================================================================
 
 -- Navigate through wrapped lines like actual lines.
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
@@ -69,9 +73,10 @@ vim.keymap.set("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc =
 -- Source current buffer, useful for testing configs.
 vim.keymap.set("n", "<Leader>s", "<Cmd>source<CR>", { desc = "Source current buffer" })
 
--- }}}
-
--- Plugins {{{
+-- =============================================================================
+-- SECTION 3: Plugins
+-- This is where the NeoVim magic starts.
+-- =============================================================================
 
 -- tokyonight.nvim
 -- A clean, dark colorscheme, source of asthetics.
@@ -175,5 +180,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<Leader>lr", tb.lsp_references, { buffer = ev.buf, desc = "Find LSP references." })
 	end,
 })
-
--- }}}
