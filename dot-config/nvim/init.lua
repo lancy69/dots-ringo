@@ -123,7 +123,16 @@ vim.pack.add({{
 	name = "bufferline.nvim",
 	src = "https://github.com/akinsho/bufferline.nvim",
 }})
-require("bufferline").setup({})
+require("bufferline").setup({
+	highlights = {
+		fill = {
+			bg = {
+				attribute = "bg",
+				highlight = "Pmenu",
+			}
+		},
+	},
+})
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<Leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
