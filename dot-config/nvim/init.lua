@@ -106,25 +106,25 @@ vim.pack.add({{
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
 
--- barbar.nvim
--- A customizable, feature-rich tabline.
+-- bufferline.nvim
+-- Most popular and mature tabline for NeoVim.
 vim.pack.add({{
-	name = "barbar.nvim",
-	src = "https://github.com/romgrk/barbar.nvim",
+	name = "bufferline.nvim",
+	src = "https://github.com/akinsho/bufferline.nvim",
 }})
-require("barbar").setup({})
+require("bufferline").setup({})
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>", opts)
-vim.keymap.set("n", "<Leader>2", "<Cmd>BufferGoto 2<CR>", opts)
-vim.keymap.set("n", "<Leader>3", "<Cmd>BufferGoto 3<CR>", opts)
-vim.keymap.set("n", "<Leader>4", "<Cmd>BufferGoto 4<CR>", opts)
-vim.keymap.set("n", "<Leader>5", "<Cmd>BufferGoto 5<CR>", opts)
-vim.keymap.set("n", "<Leader>6", "<Cmd>BufferGoto 6<CR>", opts)
-vim.keymap.set("n", "<Leader>7", "<Cmd>BufferGoto 7<CR>", opts)
-vim.keymap.set("n", "<Leader>8", "<Cmd>BufferGoto 8<CR>", opts)
-vim.keymap.set("n", "<Leader>9", "<Cmd>BufferGoto 9<CR>", opts)
-vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLast<CR>", opts)
+vim.keymap.set("n", "<Leader>1", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
+vim.keymap.set("n", "<Leader>2", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
+vim.keymap.set("n", "<Leader>3", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
+vim.keymap.set("n", "<Leader>4", "<Cmd>BufferLineGoToBuffer 4<CR>", opts)
+vim.keymap.set("n", "<Leader>5", "<Cmd>BufferLineGoToBuffer 5<CR>", opts)
+vim.keymap.set("n", "<Leader>6", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
+vim.keymap.set("n", "<Leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
+vim.keymap.set("n", "<Leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
+vim.keymap.set("n", "<Leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
+vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLineGoToBuffer -1<CR>", opts)
 
 -- lualine.nvim
 -- A blazing fast and easy to configure Neovim statusline.
