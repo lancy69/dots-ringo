@@ -67,6 +67,17 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 -- Highlights become useless when desired patterns are found.
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear highlights." })
 
+-- Delete inactive plugins. Disk space matter.
+vim.keymap.set("n", "<Leader>dp", function()
+	vim.pack.del(vim.iter(vim.pack.get())
+		:filter(function(x) return not x.active end)
+		:map(function(x) return x.spec.name end)
+		:totable()
+	)
+end, {
+	desc = "Delete inactive plugins.",
+})
+
 -- Replace all instances of the word under cursor.
 vim.keymap.set("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Replace word globally." })
 
@@ -97,7 +108,6 @@ MiniIcons.mock_nvim_web_devicons()
 
 -- barbar.nvim
 -- A customizable, feature-rich tabline.
-vim.g.barbar_auto_setup = false
 vim.pack.add({{
 	name = "barbar.nvim",
 	src = "https://github.com/romgrk/barbar.nvim",
