@@ -73,12 +73,16 @@ vim.keymap.set("n", "<Leader>s", "<Cmd>source<CR>", { desc = "Source current buf
 
 -- Plugins {{{
 
+-- tokyonight.nvim
+-- A clean, dark colorscheme, source of asthetics.
 vim.pack.add({{
 	name = "tokyonight.nvim",
 	src = "https://github.com/folke/tokyonight.nvim",
 }})
 vim.cmd.colorscheme("tokyonight-storm")
 
+-- mini.nvim
+-- A collection of small, focused modules.
 vim.pack.add({{
 	name = "mini.nvim",
 	src = "https://github.com/nvim-mini/mini.nvim",
@@ -86,11 +90,90 @@ vim.pack.add({{
 require("mini.icons").setup()
 MiniIcons.mock_nvim_web_devicons()
 
+-- gitsigns.nvim
+-- Shows Git changes in the sign column and provides Git-aware actions.
+vim.pack.add({{
+	name = "gitsigns.nvim",
+	src = "https://github.com/lewis6991/gitsigns.nvim",
+}})
+require("gitsigns").setup()
+
+-- guess-indent.nvim
+-- Automatically detects indentation settings for each buffer.
+vim.pack.add({{
+	name = "guess-indent.nvim",
+	src = "https://github.com/nmac427/guess-indent.nvim",
+}})
+require("guess-indent").setup()
+
+-- todo-comments.nvim
+-- Highlights and searches TODO-style annotations in comments.
+vim.pack.add({{
+	name = "todo-comments.nvim",
+	src = "https://github.com/folke/todo-comments.nvim",
+}})
+require("todo-comments").setup({ signs = false })
+
+-- oil.nvim
+-- A file explorer that lets directories be edited like normal buffers.
 vim.pack.add({{
 	name = "oil.nvim",
 	src = "https://github.com/stevearc/oil.nvim",
 }})
 require("oil").setup()
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory." })
+
+-- telescope.nvim
+-- A highly extensible fuzzy finder for files, text, and more.
+local telescope_plugins = {{
+	name = "plenary.nvim",
+	src = "https://github.com/nvim-lua/plenary.nvim",
+}, {
+	name = "telescope.nvim",
+	src = "https://github.com/nvim-telescope/telescope.nvim",
+}}
+
+if vim.fn.executable("make") == 1 then
+	table.insert(telescope_plugins, {
+		name = "telescope-fzf-native.nvim",
+		src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+	})
+	vim.api.nvim_create_autocmd("PackChanged", {
+		group = vim.api.nvim_create_augroup("plugins-build", { clear = false }),
+		callback = function(ev)
+			local name = ev.data.spec.name
+			local kind = ev.data.kind
+			if name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
+				local result = vim.system({ "make" }, { cwd = ev.data.path }):wait()
+				if result.code ~= 0 then
+					local stdout = result.stdout or ""
+					local stderr = result.stderr or ""
+					local note = stderr ~= "" and stderr or stdout
+					vim.notify("Build failed for telescope-fzf-native.nvim:\n" .. note, vim.log.levels.ERROR)
+				else
+					vim.notify("Build succeeded for telescope-fzf-native.nvim.")
+				end
+			end
+		end,
+	})
+end
+
+vim.pack.add(telescope_plugins)
+require("telescope").setup()
+
+local tb = require("telescope.builtin")
+vim.keymap.set("n", "<Leader>fb", tb.buffers, { desc = "Find buffers." })
+vim.keymap.set("n", "<Leader>fd", tb.buffers, { desc = "Find diagnostics." })
+vim.keymap.set("n", "<Leader>ff", tb.find_files, { desc = "Find files." })
+vim.keymap.set("n", "<Leader>fg", tb.live_grep, { desc = "Find patterns." })
+vim.keymap.set("n", "<Leader>fh", tb.help_tags, { desc = "Find help text." })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("telescope-lsp-attach", {}),
+	callback = function(ev)
+		vim.keymap.set("n", "<Leader>ld", tb.lsp_definitions, { buffer = ev.buf, desc = "Find LSP definitions." })
+		vim.keymap.set("n", "<Leader>lr", tb.lsp_references, { buffer = ev.buf, desc = "Find LSP references." })
+	end,
+})
 
 -- }}}
