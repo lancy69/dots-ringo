@@ -215,6 +215,22 @@ vim.pack.add({{
 }})
 require("todo-comments").setup({ signs = false })
 
+-- colorizer.nvim
+-- Automatically show previews for text representing colors.
+vim.pack.add({{
+	name = "colorizer.nvim",
+	src = "https://github.com/catgoose/nvim-colorizer.lua",
+}})
+require("colorizer").setup({
+	display = {
+		mode = "virtualtext",
+		virtualtext = {
+			char = "󱓻",
+			position = "after",
+		},
+	}
+})
+
 -- guess-indent.nvim
 -- Automatically detects indentation settings for each buffer.
 vim.pack.add({{
