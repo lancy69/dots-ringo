@@ -82,7 +82,10 @@ end, {
 vim.keymap.set("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Replace word globally." })
 
 -- Source current buffer, useful for testing configs.
-vim.keymap.set("n", "<Leader>s", "<Cmd>source<CR>", { desc = "Source current buffer" })
+vim.keymap.set("n", "<Leader>s", "<Cmd>source<CR>", { desc = "Source current buffer." })
+
+-- Delete current buffer.
+vim.keymap.set("n", "<Leader>x", "<Cmd>bdelete<CR>", { desc = "Delete current buffer." })
 
 -- =============================================================================
 -- SECTION 3: Plugins
