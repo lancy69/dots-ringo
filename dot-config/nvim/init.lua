@@ -99,14 +99,15 @@ vim.pack.add({{
 	src = "https://github.com/folke/tokyonight.nvim",
 }})
 require("tokyonight").setup({
+	style = "storm",
 	on_highlights = function(hl, c)
 		hl.BufferLineIndicatorSelected = {
 			bg = c.bg,
 			fg = c.git.change,
 		}
-	end
+	end,
 })
-vim.cmd.colorscheme("tokyonight-storm")
+vim.cmd.colorscheme("tokyonight")
 
 -- mini.nvim
 -- A collection of small, focused modules.
@@ -114,7 +115,11 @@ vim.pack.add({{
 	name = "mini.nvim",
 	src = "https://github.com/nvim-mini/mini.nvim",
 }})
-require("mini.icons").setup()
+require("mini.icons").setup({
+	file = {
+		["init.lua"] = { glyph = "󰢱", hl = "MiniIconsAzure" },
+	},
+})
 MiniIcons.mock_nvim_web_devicons()
 
 -- bufferline.nvim
@@ -237,7 +242,7 @@ vim.pack.add({{
 	name = "guess-indent.nvim",
 	src = "https://github.com/nmac427/guess-indent.nvim",
 }})
-require("guess-indent").setup()
+require("guess-indent").setup({})
 
 -- oil.nvim
 -- A file explorer that lets directories be edited like normal buffers.
@@ -284,7 +289,7 @@ if vim.fn.executable("make") == 1 then
 end
 
 vim.pack.add(telescope_plugins)
-require("telescope").setup()
+require("telescope").setup({})
 
 local tb = require("telescope.builtin")
 vim.keymap.set("n", "<Leader>fb", tb.buffers, { desc = "Find buffers." })
@@ -320,8 +325,4 @@ require("mason-lspconfig").setup({
 		"tinymist",
 		"ts_ls",
 	}
-})
-
-vim.lsp.config("lua_ls", {
-	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
