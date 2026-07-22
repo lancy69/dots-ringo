@@ -349,7 +349,7 @@ require("mason-lspconfig").setup({
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "lua" },
-	callback = function(ev)
+	callback = function(_)
 		vim.opt_local.tabstop = 2
 	end
 })
