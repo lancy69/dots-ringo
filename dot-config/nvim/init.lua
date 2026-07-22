@@ -197,9 +197,12 @@ dashboard.section.header.val = {
 	"                                                                       ",
 }
 dashboard.section.buttons.val = {
+	dashboard.button("a", "󰘓  All Files", "<Cmd>Telescope find_files hidden=true<CR>"),
+	dashboard.button("b", "󰝰  Browse Files", "<Cmd>Oil<CR>"),
 	dashboard.button("e", "󱇧  Edit File", "<Cmd>enew <BAR> startinsert<CR>"),
 	dashboard.button("f", "󰱼  Find File", "<Cmd>Telescope find_files<CR>"),
-	dashboard.button("g", "󱝴  Find Pattern", "<Cmd>Telescope live_grep<CR>"),
+	dashboard.button("g", "󱝴  Grep Pattern", "<Cmd>Telescope live_grep<CR>"),
+	dashboard.button("o", "󱋡  Old Files", "<Cmd>Telescope oldfiles<CR>"),
 	dashboard.button("q", "󰅙  Quit NeoVim", "<Cmd>qa<CR>"),
 }
 alpha.setup(dashboard.opts)
@@ -292,6 +295,7 @@ vim.pack.add(telescope_plugins)
 require("telescope").setup({})
 
 local tb = require("telescope.builtin")
+vim.keymap.set("n", "<Leader>fa", function() tb.find_files({ hidden = true }) end, { desc = "Find all files." })
 vim.keymap.set("n", "<Leader>fb", tb.buffers, { desc = "Find buffers." })
 vim.keymap.set("n", "<Leader>fd", tb.buffers, { desc = "Find diagnostics." })
 vim.keymap.set("n", "<Leader>ff", tb.find_files, { desc = "Find files." })
