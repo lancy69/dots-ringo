@@ -52,8 +52,9 @@ vim.opt.confirm = true
 -- Draw borders to indicate floating windows.
 vim.opt.winborder = "rounded"
 
--- Fold by markers. Split large file into smaller sections (like this one).
-vim.opt.foldmethod = "marker"
+-- Mark non-visible characters like tabs and spaces.
+vim.opt.list = true
+vim.opt.listchars = { lead = "·", nbsp = "␣", tab = "» ", trail = "~" }
 
 -- =============================================================================
 -- SECTION 2: Keymaps
