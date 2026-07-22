@@ -300,3 +300,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<Leader>lr", tb.lsp_references, { buffer = ev.buf, desc = "Find LSP references." })
 	end,
 })
+
+-- mason.nvim
+-- Install and manage LSP servers, DAP servers, linters, and formatters.
+vim.pack.add({{
+	name = "lspconfig.nvim",
+	src = "https://github.com/neovim/nvim-lspconfig",
+}, {
+	name = "mason.nvim",
+	src = "https://github.com/mason-org/mason.nvim",
+}, {
+	name = "mason-lspconfig.nvim",
+	src = "https://github.com/mason-org/mason-lspconfig.nvim",
+}})
+require("mason").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"lua_ls",
+		"tinymist",
+		"ts_ls",
+	}
+})
+
+vim.lsp.config("lua_ls", {
+	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+})
