@@ -157,6 +157,7 @@ vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLineGoToBuffer -1<CR>", opts)
 
 -- lualine.nvim
 -- A blazing fast and easy to configure Neovim statusline.
+vim.opt.showmode = false
 vim.pack.add({{
 	name = "lualine.nvim",
 	src = "https://github.com/nvim-lualine/lualine.nvim",
@@ -310,6 +311,7 @@ vim.keymap.set("n", "<Leader>fd", tb.buffers, { desc = "Find diagnostics." })
 vim.keymap.set("n", "<Leader>ff", tb.find_files, { desc = "Find files." })
 vim.keymap.set("n", "<Leader>fg", tb.live_grep, { desc = "Find patterns." })
 vim.keymap.set("n", "<Leader>fh", tb.help_tags, { desc = "Find help text." })
+vim.keymap.set("n", "<Leader>fo", tb.oldfiles, { desc = "Find old (recent) files." })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("telescope-lsp-attach", {}),
