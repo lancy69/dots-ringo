@@ -120,6 +120,9 @@ require("mini.icons").setup({
 	file = {
 		["init.lua"] = { glyph = "󰢱", hl = "MiniIconsAzure" },
 	},
+	filetype = {
+		["typst"] = { glyph = "" },
+	}
 })
 MiniIcons.mock_nvim_web_devicons()
 
@@ -311,8 +314,8 @@ vim.keymap.set("n", "<Leader>fh", tb.help_tags, { desc = "Find help text." })
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("telescope-lsp-attach", {}),
 	callback = function(ev)
-		vim.keymap.set("n", "<Leader>ld", tb.lsp_definitions, { buffer = ev.buf, desc = "Find LSP definitions." })
-		vim.keymap.set("n", "<Leader>lr", tb.lsp_references, { buffer = ev.buf, desc = "Find LSP references." })
+		vim.keymap.set("n", "<Leader>ld", tb.lsp_definitions, { buf = ev.buf, desc = "Find LSP definitions." })
+		vim.keymap.set("n", "<Leader>lr", tb.lsp_references, { buf = ev.buf, desc = "Find LSP references." })
 	end,
 })
 
@@ -347,9 +350,51 @@ require("mason-lspconfig").setup({
 -- Every language deserves their own candies.
 -- =============================================================================
 
+-- Lua
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "lua" },
 	callback = function(_)
 		vim.opt_local.tabstop = 2
+	end
+})
+
+-- Typst
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "typst" },
+	callback = function(ev)
+		vim.opt_local.tabstop = 2
+		vim.pack.add({{
+			name = "typst-preview.nvim",
+			src = "https://github.com/chomosuke/typst-preview.nvim",
+		}})
+		require("typst-preview").setup({
+			invert_colors = "auto",
+		})
+		vim.keymap.set("n", "<LocalLeader>c", function()
+			local root = vim.fn.getcwd()
+			local file = vim.api.nvim_buf_get_name(0)
+
+			if file == "" then
+				vim.notify("No file name for current buffer.", vim.log.levels.ERROR)
+				return
+			end
+
+			vim.system({ "typst", "compile", "--root", root, file }, { text = true }, function(cmd)
+				vim.schedule(function()
+					if cmd.code == 0 then
+						vim.notify("Typst compiled: " .. vim.fn.fnamemodify(file, ":t"), vim.log.levels.INFO)
+					else
+						vim.notify(cmd.stderr, vim.log.levels.ERROR)
+					end
+				end)
+			end)
+		end, {
+			buf = ev.buf,
+			desc = "Compile current Typst file."
+		})
+		vim.keymap.set("n", "<LocalLeader>p", "<Cmd>TypstPreviewToggle<CR>", {
+			buf = ev.buf,
+			desc = "Toggle Typst preview.",
+		})
 	end
 })
