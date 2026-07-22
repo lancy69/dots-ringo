@@ -89,8 +89,8 @@ vim.keymap.set("n", "<Leader>s", "<Cmd>source<CR>", { desc = "Source current buf
 vim.keymap.set("n", "<Leader>x", "<Cmd>bdelete<CR>", { desc = "Delete current buffer." })
 
 -- =============================================================================
--- SECTION 3: Plugins
--- This is where the NeoVim magic starts.
+-- SECTION 3: UI/UX
+-- A good editor can also be a good-looking editor.
 -- =============================================================================
 
 -- tokyonight.nvim
@@ -248,6 +248,11 @@ vim.pack.add({{
 }})
 require("guess-indent").setup({})
 
+-- =============================================================================
+-- SECTION 4: Search & Navigation
+-- Traverse on the filetree, search for the target.
+-- =============================================================================
+
 -- oil.nvim
 -- A file explorer that lets directories be edited like normal buffers.
 vim.pack.add({{
@@ -311,6 +316,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+-- =============================================================================
+-- SECTION 5: LSP
+-- Add language intelligence: diagnostics, navigation, refactoring.
+-- =============================================================================
+
 -- mason.nvim
 -- Install and manage LSP servers, DAP servers, linters, and formatters.
 vim.pack.add({{
@@ -330,4 +340,16 @@ require("mason-lspconfig").setup({
 		"tinymist",
 		"ts_ls",
 	}
+})
+
+-- =============================================================================
+-- SECTION 6: Language-Specific
+-- Every language deserves their own candies.
+-- =============================================================================
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "lua" },
+	callback = function(ev)
+		vim.opt_local.tabstop = 2
+	end
 })
