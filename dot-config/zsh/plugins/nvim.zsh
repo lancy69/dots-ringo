@@ -3,8 +3,6 @@ if ! (( $+commands[nvim] )); then
 	return 0
 fi
 
-alias v="nvim"
-
 # Set default editor in terminal.
 export EDITOR="nvim"
 export VISUAL="nvim"
