@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Ringo",
   description: "A MacOS configuration that rocks.",
+  base: "/dots-ringo/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
