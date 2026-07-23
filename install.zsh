@@ -35,7 +35,7 @@ if [[ "$OSTYPE" != darwin* ]] || [[ $(sysctl -n "hw.optional.arm64" &>/dev/null)
 esac
 
 ringo_dir="${RINGO_DIR:-$HOME/.dots-ringo}"
-git clone "https://gitee.com/lancy69/dots-ringo.git" "$ringo_dir"
+git clone --depth=1 "https://gitee.com/lancy69/dots-ringo.git" "$ringo_dir"
 cd "$ringo_dir"
 source "dot-zshrc"
 
