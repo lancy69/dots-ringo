@@ -341,9 +341,15 @@ vim.pack.add({{
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
+		"gh_actions_ls",
+		"jsonls",
 		"lua_ls",
+		"ruff",
+		"taplo",
 		"tinymist",
 		"ts_ls",
+		"ty",
+		"yamlls",
 	}
 })
 
