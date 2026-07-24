@@ -8,11 +8,12 @@ hero:
   tagline: A MacOS configuration that rocks.
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: About Ringo
+      link: /pages/about-ringo
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Quickstart
+      link: /pages/getting-started
+  image:
 
 features:
   - title: Feature A
@@ -22,4 +23,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

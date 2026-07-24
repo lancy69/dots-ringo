@@ -2,28 +2,23 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Ringo",
-  description: "A MacOS configuration that rocks.",
-  base: "/dots-ringo/",
+  title: 'Ringo',
+  description: 'A MacOS configuration that rocks.',
+  base: '/dots-ringo/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Introduction',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'About Ringo', link: '/pages/about-ringo' },
+          { text: 'Getting Started', link: '/pages/getting-started' }
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/lancy69/dots-ringo' }
     ]
   }
 })
