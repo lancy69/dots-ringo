@@ -370,14 +370,14 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Typst
+vim.pack.add({{
+	name = "typst-preview.nvim",
+	src = "https://github.com/chomosuke/typst-preview.nvim",
+}})
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "typst" },
 	callback = function(ev)
 		vim.opt_local.tabstop = 2
-		vim.pack.add({{
-			name = "typst-preview.nvim",
-			src = "https://github.com/chomosuke/typst-preview.nvim",
-		}})
 		require("typst-preview").setup({
 			invert_colors = "auto",
 		})
