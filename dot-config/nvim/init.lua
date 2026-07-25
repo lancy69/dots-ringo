@@ -205,11 +205,12 @@ dashboard.section.header.val = {
 	"                                                                       ",
 }
 dashboard.section.buttons.val = {
-	dashboard.button("a", "󰘓  All Files", "<Cmd>Telescope find_files hidden=true<CR>"),
+	dashboard.button("a", "󰛭  All Files", "<Cmd>Telescope find_files hidden=true<CR>"),
 	dashboard.button("b", "󰝰  Browse Files", "<Cmd>Oil<CR>"),
 	dashboard.button("e", "󱇧  Edit File", "<Cmd>enew <BAR> startinsert<CR>"),
-	dashboard.button("f", "󰱼  Find File", "<Cmd>Telescope find_files<CR>"),
-	dashboard.button("g", "󱝴  Grep Pattern", "<Cmd>Telescope live_grep<CR>"),
+	dashboard.button("f", "󰍉  Find File", "<Cmd>Telescope find_files<CR>"),
+	dashboard.button("g", "󰑑  Grep Pattern", "<Cmd>Telescope live_grep<CR>"),
+	dashboard.button("h", "󰡯  Help Docs", "<Cmd>Telescope help_tags<CR>"),
 	dashboard.button("o", "󱋡  Old Files", "<Cmd>Telescope oldfiles<CR>"),
 	dashboard.button("q", "󰅙  Quit NeoVim", "<Cmd>qa<CR>"),
 }
