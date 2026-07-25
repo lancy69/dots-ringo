@@ -369,6 +369,20 @@ vim.api.nvim_create_autocmd("FileType", {
 	end
 })
 
+-- Rust
+vim.pack.add({{
+	name = "rustacean.nvim",
+	src = "https://github.com/mrcjkb/rustaceanvim",
+	version = vim.version.range('^9'),
+}})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "rust" },
+	callback = function(ev)
+		-- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+		vim.keymap.set("n", "K", function() vim.cmd.RustLsp({ "hover", "actions" }) end, { buf = ev.buf, silent = true })
+	end
+})
+
 -- Typst
 vim.pack.add({{
 	name = "typst-preview.nvim",
@@ -384,12 +398,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "<LocalLeader>c", function()
 			local root = vim.fn.getcwd()
 			local file = vim.api.nvim_buf_get_name(0)
-
 			if file == "" then
 				vim.notify("No file name for current buffer.", vim.log.levels.ERROR)
 				return
 			end
-
 			vim.system({ "typst", "compile", "--root", root, file }, { text = true }, function(cmd)
 				vim.schedule(function()
 					if cmd.code == 0 then
