@@ -79,6 +79,9 @@ end, {
 	desc = "Delete inactive plugins.",
 })
 
+-- Update plugins (with a confirmation buffer).
+vim.keymap.set("n", "<Leader>up", vim.pack.update, { desc = "Update plugins." })
+
 -- Replace all instances of the word under cursor.
 vim.keymap.set("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Replace word globally." })
 
