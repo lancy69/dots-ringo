@@ -120,10 +120,17 @@ vim.pack.add({{
 	src = "https://github.com/nvim-mini/mini.nvim",
 }})
 require("mini.icons").setup({
+	default = {
+		directory = { hl = "MiniIconsBlue" },
+	},
 	file = {
-		["init.lua"] = { glyph = "󰢱", hl = "MiniIconsAzure" },
+		["LICENSE"] = { hl = "MiniIconsYellow" },
+		["config"] = { glyph = "󰒓" },
+		["init.lua"] = { glyph = "󰢱", hl = "MiniIconsBlue" },
 	},
 	filetype = {
+		["ghostty"] = { glyph = "", hl = "MiniIconsBlue" },
+		["lua"] = { hl = "MiniIconsBlue" },
 		["typst"] = { glyph = "" },
 	}
 })
