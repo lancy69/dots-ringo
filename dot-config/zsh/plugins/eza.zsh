@@ -1,4 +1,4 @@
-if ! (( $+commands[eza] )); then
+if (( ! $+commands[eza] )); then
 	print -P "%B%F{yellow}[WARNING] eza: binary not exist, skipping plugin...%f%b"
 	return 0
 fi

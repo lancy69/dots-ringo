@@ -1,4 +1,4 @@
-if ! (( $+commands[yazi] )); then
+if (( ! $+commands[yazi] )); then
 	print -P "%B%F{yellow}[WARNING] yazi: binary not exist, skipping plugin...%f%b"
 	return 0
 fi

@@ -1,4 +1,4 @@
-if ! (( $+commands[starship] )); then
+if (( ! $+commands[starship] )); then
 	print -P "%B%F{yellow}[WARNING] starship: binary not exist, skipping plugin...%f%b"
 	return 0
 fi

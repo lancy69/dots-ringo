@@ -1,4 +1,4 @@
-if ! (( $+commands[nvim] )); then
+if (( ! $+commands[nvim] )); then
 	print -P "%B%F{yellow}[WARNING] nvim: binary not exist, skipping plugin...%f%b"
 	return 0
 fi

@@ -1,4 +1,4 @@
-if ! (( $+commands[fzf] )); then
+if (( ! $+commands[fzf] )); then
 	print -P "%B%F{yellow}[WARNING] fzf: binary not exist, skipping plugin...%f%b"
 	return 0
 fi
