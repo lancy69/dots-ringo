@@ -333,9 +333,50 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- =============================================================================
--- SECTION 5: LSP
+-- SECTION 5: Treesitter & LSP
 -- Add language intelligence: diagnostics, navigation, refactoring.
 -- =============================================================================
+
+-- treesitter.nvim
+-- Integrate tree-sitter into NeoVim.
+vim.pack.add({{
+	name = "treesitter.nvim",
+	src = "https://github.com/nvim-treesitter/nvim-treesitter",
+}})
+local treesitter = require("nvim-treesitter")
+treesitter.install({ "lua", "luadoc", "vim", "vimdoc" })
+
+local available_parsers = treesitter.get_available()
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(ev)
+		local buf, filetype = ev.buf, ev.match
+		local lang = vim.treesitter.language.get_lang(filetype)
+		if not lang then return end
+
+		local installed_parsers = require("nvim-treesitter").get_installed("parsers")
+		if vim.tbl_contains(available_parsers, lang) and
+			not vim.tbl_contains(installed_parsers, lang) then
+				treesitter.install(lang):wait(300000)
+		end
+		if vim.treesitter.language.add(lang) then
+			vim.treesitter.start(buf, lang)
+		end
+	end
+})
+
+vim.api.nvim_create_autocmd("PackChanged", {
+	group = vim.api.nvim_create_augroup("plugins-build", { clear = false }),
+	callback = function(ev)
+		local kind = ev.data.kind
+		if kind ~= "install" and kind ~= "update" then return end
+
+		local name = ev.data.spec.name
+		if name == "treesitter.nvim" then
+			if not ev.data.active then vim.cmd.packadd("treesitter.nvim") end
+			vim.cmd("TSUpdate")
+		end
+	end,
+})
 
 -- mason.nvim
 -- Install and manage LSP servers, DAP servers, linters, and formatters.
