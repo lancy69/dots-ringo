@@ -110,7 +110,7 @@ require("tokyonight").setup({
 			fg = c.git.change,
 		}
 		hl["@comment.documentation"] = {
-			fg = c.blue,
+			fg = c.dark5,
 			italic = true,
 		}
 		hl["@lsp.typemod.comment.documentation"] = {
