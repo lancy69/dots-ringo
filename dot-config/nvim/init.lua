@@ -295,10 +295,12 @@ if vim.fn.executable("make") == 1 then
 	vim.api.nvim_create_autocmd("PackChanged", {
 		group = vim.api.nvim_create_augroup("plugins-build", { clear = false }),
 		callback = function(ev)
-			local name = ev.data.spec.name
 			local kind = ev.data.kind
-			if name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
-				local result = vim.system({ "make" }, { cwd = ev.data.path }):wait()
+			if kind ~= "install" and kind ~= "update" then return end
+
+			local name = ev.data.spec.name
+			if name == "telescope-fzf-native.nvim" then
+				local result = vim.system({ "make" }, { cwd = ev.data.path }):wait(300000)
 				if result.code ~= 0 then
 					local stdout = result.stdout or ""
 					local stderr = result.stderr or ""
@@ -339,6 +341,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- treesitter.nvim
 -- Integrate tree-sitter into NeoVim.
+vim.api.nvim_create_autocmd("PackChanged", {
+	group = vim.api.nvim_create_augroup("plugins-build", { clear = false }),
+	callback = function(ev)
+		local kind = ev.data.kind
+		if kind ~= "install" and kind ~= "update" then return end
+
+		local name = ev.data.spec.name
+		if name == "treesitter.nvim" then
+			if not ev.data.active then vim.cmd.packadd("treesitter.nvim") end
+			vim.cmd("TSUpdate")
+		end
+	end,
+})
+
 vim.pack.add({{
 	name = "treesitter.nvim",
 	src = "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -362,20 +378,6 @@ vim.api.nvim_create_autocmd("FileType", {
 			vim.treesitter.start(buf, lang)
 		end
 	end
-})
-
-vim.api.nvim_create_autocmd("PackChanged", {
-	group = vim.api.nvim_create_augroup("plugins-build", { clear = false }),
-	callback = function(ev)
-		local kind = ev.data.kind
-		if kind ~= "install" and kind ~= "update" then return end
-
-		local name = ev.data.spec.name
-		if name == "treesitter.nvim" then
-			if not ev.data.active then vim.cmd.packadd("treesitter.nvim") end
-			vim.cmd("TSUpdate")
-		end
-	end,
 })
 
 -- mason.nvim
@@ -418,12 +420,40 @@ vim.api.nvim_create_autocmd("FileType", {
 	end
 })
 
+-- Markdown
+vim.api.nvim_create_autocmd("PackChanged", {
+	group = vim.api.nvim_create_augroup("plugins-build", { clear = false }),
+	callback = function(ev)
+		local kind = ev.data.kind
+		if kind ~= "install" and kind ~= "update" then return end
+
+		local name = ev.data.spec.name
+		if name == "markdown-preview.nvim" then
+			if not ev.data.active then vim.cmd.packadd("markdown-preview.nvim") end
+			vim.fn["mkdp#util#install"]()
+		end
+	end
+})
+
+vim.pack.add({{
+	name = "markdown-preview.nvim",
+	src = "https://github.com/iamcco/markdown-preview.nvim",
+}})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "markdown" },
+	callback = function(_)
+		vim.keymap.set("n", "<LocalLeader>p", "<Cmd>MarkdownPreviewToggle<CR>", { desc = "Toggle Markdown preview." })
+	end
+})
+
 -- Rust
 vim.pack.add({{
 	name = "rustacean.nvim",
 	src = "https://github.com/mrcjkb/rustaceanvim",
 	version = vim.version.range('^9'),
 }})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "rust" },
 	callback = function(ev)
@@ -437,6 +467,7 @@ vim.pack.add({{
 	name = "typst-preview.nvim",
 	src = "https://github.com/chomosuke/typst-preview.nvim",
 }})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "typst" },
 	callback = function(ev)
