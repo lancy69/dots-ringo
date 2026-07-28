@@ -109,6 +109,13 @@ require("tokyonight").setup({
 			bg = c.bg,
 			fg = c.git.change,
 		}
+		hl["@comment.documentation"] = {
+			fg = c.blue,
+			italic = true,
+		}
+		hl["@lsp.typemod.comment.documentation"] = {
+			link = "@comment.documentation",
+		}
 	end,
 })
 vim.cmd.colorscheme("tokyonight")
@@ -403,6 +410,7 @@ require("mason-lspconfig").setup({
 		"tinymist",
 		"ts_ls",
 		"ty",
+		"vimls",
 		"yamlls",
 	}
 })
