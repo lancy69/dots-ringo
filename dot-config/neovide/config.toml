@@ -1,0 +1,6 @@
+grid = "120x36"
+
+[font]
+normal = { family = "Maple Mono NFMono CN" }
+features = { "Maple Mono NFMono CN" = [ "-calt", "+cv01", "+cv02", "+cv04" ] }
+size = 15.0
