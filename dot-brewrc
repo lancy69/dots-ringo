@@ -52,6 +52,7 @@ cask "font-noto-sans-cjk-sc"
 cask "font-noto-serif-cjk-sc"
 cask "ghostty"
 cask "iina"
+cask "karabiner-elements"
 cask "transmission"
 cask "zen"
 
