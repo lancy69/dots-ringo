@@ -19,7 +19,7 @@ print -P "$(cat <<EOF
 %F{1}   :MMMMMMMMMMMMMMMMMMMMMMMM:         %feye-catching, terminal-first,
 %F{1}   .MMMMMMMMMMMMMMMMMMMMMMMMX.        %fpseudo-declarative-by-bootstrapping-everything,
 %F{1}    kMMMMMMMMMMMMMMMMMMMMMMMMWd.      %fspend-too-much-time-tweaking-to-actually-get-to-work,
-%F{5}    'XMMMMMMMMMMMMMMMMMMMMMMMMMMk     %fMacOS configuration.
+%F{5}    'XMMMMMMMMMMMMMMMMMMMMMMMMMMk     %fmacOS configuration.
 %F{5}     'XMMMMMMMMMMMMMMMMMMMMMMMMK.
 %F{4}       kMMMMMMMMMMMMMMMMMMMMMMd
 %F{4}        ;KMMMMMMMWXXWMMMMMMMk.
@@ -28,9 +28,9 @@ EOF
 )
 "
 
-# Runs only on Zsh, MacOS, Apple Silicon.
+# Runs only on Zsh, macOS, Apple Silicon.
 if [[ "$OSTYPE" != darwin* ]] || [[ $(sysctl -n "hw.optional.arm64" &>/dev/null) != 1 ]]; then
-	print -P "%B%F{1}[ERROR] Ringo is for MacOS only. Exiting...%f%b"
+	print -P "%B%F{1}[ERROR] Ringo is for macOS only. Exiting...%f%b"
 	exit 1
 esac
 
