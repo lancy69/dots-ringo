@@ -2,7 +2,7 @@
   "title": "Lancy's Mappings",
   "rules": [
     {
-      "description": "Caps Lock: Control + Escape",
+      "description": "<CapsLock> behaves like <Ctrl> when hold and <Esc> when pressed.",
       "manipulators": [
         {
           "type": "basic",
@@ -20,6 +20,26 @@
           "to_if_alone": [
             {
               "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "<Ctrl> + <;> behaves like <Ctrl> + <a>",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": ["left_control"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": ["left_control"]
             }
           ]
         }
