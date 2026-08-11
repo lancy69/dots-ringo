@@ -1,4 +1,6 @@
+frame = "transparent"
 grid = "120x36"
+title-hidden = true
 
 [font]
 normal = { family = "Maple Mono NFMono CN" }
