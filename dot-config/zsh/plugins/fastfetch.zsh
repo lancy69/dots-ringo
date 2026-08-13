@@ -3,4 +3,4 @@ if (( ! $+commands[fastfetch] )); then
 	return 0
 fi
 
-alias f="fastfetch"
+alias ff="fastfetch"
