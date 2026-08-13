@@ -1,0 +1,17 @@
+" Use Vim's XDG support when available.
+" Fall back to configuring Viminfo manually for Vim 9.1 and older.
+if has('patch-9.2.0') && filereadable(expand('$VIMRUNTIME/xdg.vim'))
+	source $VIMRUNTIME/xdg.vim
+else
+	let s:state_home = empty($XDG_STATE_HOME) ? expand('~/.local/state') : expand($XDG_STATE_HOME)
+	let s:vim_state_dir = s:state_home . '/vim'
+
+	call mkdir(s:vim_state_dir, 'p', 0700)
+	let &viminfofile = s:vim_state_dir . '/viminfo'
+
+	unlet s:state_home
+	unlet s:vim_state_dir
+endif
+
+set number
+set relativenumber
