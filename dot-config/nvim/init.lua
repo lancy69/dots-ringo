@@ -403,6 +403,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"gh_actions_ls",
+		"denols",
 		"jsonls",
 		"lua_ls",
 		"ruff",
