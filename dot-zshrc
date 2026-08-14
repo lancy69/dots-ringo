@@ -39,6 +39,8 @@ fi
 prepend_path() {
 	[[ -z "$1" ]] || (( $path[(Ie)$1] )) || path=("$1" $path)
 }
+# Add local binaries to $PATH.
+prepend_path "${XDG_DATA_HOME%/*}/bin"
 
 # Source plugin scripts, setup every program.
 for plugin in "$XDG_CONFIG_HOME/zsh/plugins"/*.zsh(N); do
