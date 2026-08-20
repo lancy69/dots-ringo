@@ -3,6 +3,9 @@ if (( ! $+commands[python3] )); then
 	return 0
 fi
 
+[[ -d "$XDG_STATE_HOME/python" ]] || mkdir -p "$XDG_STATE_HOME/python"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
+
 # This is where Homebrew links `python` binary to latest version.
 prepend_path "$HOMEBREW_PREFIX/opt/python/libexec/bin"
 
