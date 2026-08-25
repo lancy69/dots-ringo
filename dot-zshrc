@@ -30,7 +30,7 @@ if [[ -z "$HOMEBREW_PREFIX" ]] && [[ -x "/opt/homebrew/bin/brew" ]]; then
 	# Set the default pip index url used by brew.
 	export HOMEBREW_PIP_INDEX_URL="https://mirror.nju.edu.cn/pypi/web/simple"
 	# Set the default brew bundle file.
-	export HOMEBREW_BUNDLE_FILE="$HOME/.brewrc"
+	export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/brew/brewrc"
 
 	# Setup shell intregration for brew.
 	eval "$(/opt/homebrew/bin/brew shellenv)"
