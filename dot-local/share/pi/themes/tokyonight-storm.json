@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
-  "name": "Tokyo Night Storm",
+  "name": "tokyonight-storm",
   "colors": {
     "accent": "#7aa2f7",
     "border": "#29a4bd",
@@ -30,7 +30,7 @@
     "mdLink": "#1abc9c",
     "mdLinkUrl": "#565f89",
     "mdCode": "#7aa2f7",
-    "mdCodeBlock": "#1f2335",
+    "mdCodeBlock": "#a9b1d6",
     "mdCodeBlockBorder": "#565f89",
     "mdQuote": "#565f89",
     "mdQuoteBorder": "#565f89",
