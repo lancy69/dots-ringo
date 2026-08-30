@@ -53,6 +53,7 @@ brew "zoxide"
 
 cask "chatgpt"
 cask "clash-verge-rev"
+cask "codex"
 cask "font-libertinus"
 cask "font-meslo-lg-nerd-font"
 cask "font-noto-color-emoji"
