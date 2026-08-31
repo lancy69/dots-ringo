@@ -399,6 +399,14 @@ vim.pack.add({{
 	name = "mason-lspconfig.nvim",
 	src = "https://github.com/mason-org/mason-lspconfig.nvim",
 }})
+
+vim.lsp.config("tinymist", {
+	settings = {
+		exportTarget = "html",
+		typstExtraArgs = { "--features=html" },
+	},
+})
+
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
