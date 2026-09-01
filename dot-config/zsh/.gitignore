@@ -1,0 +1,4 @@
+# Store API keys as environment variables in here.
+# Example: `export DEEPSEEK_API_KEY="sk-*"`
+# To quickly view all keys, use: `env | grep API`
+plugins/keys.zsh
