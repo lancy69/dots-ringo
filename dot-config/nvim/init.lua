@@ -322,7 +322,13 @@ if vim.fn.executable("make") == 1 then
 end
 
 vim.pack.add(telescope_plugins)
-require("telescope").setup({})
+require("telescope").setup({
+	pickers = {
+		find_files = {
+			no_ignore = true,
+		},
+	},
+})
 
 local tb = require("telescope.builtin")
 vim.keymap.set("n", "<Leader>fa", function() tb.find_files({ hidden = true }) end, { desc = "Find all files." })
