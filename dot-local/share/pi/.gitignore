@@ -1,5 +1,8 @@
 *
+
 !.gitignore
+
+!mcp.json
 
 !themes/
 !themes/tokyonight-storm.json
