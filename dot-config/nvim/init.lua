@@ -434,7 +434,26 @@ require("mason-lspconfig").setup({
 })
 
 -- =============================================================================
--- SECTION 6: Language-Specific
+-- SECTION 6: Autocomplete & Snippets.
+-- I am too lazy to type everything myself.
+-- =============================================================================
+
+-- blink-cmp
+-- Fastest completion plugin.
+vim.pack.add({{
+	name = "blink-lib",
+	src = "https://github.com/saghen/blink.lib",
+}, {
+	name = "blink-cmp",
+	src = "https://github.com/Saghen/blink.cmp",
+}})
+
+local cmp = require("blink.cmp")
+cmp.build():pwait()
+cmp.setup()
+
+-- =============================================================================
+-- SECTION 7: Language-Specific
 -- Every language deserves their own candies.
 -- =============================================================================
 
