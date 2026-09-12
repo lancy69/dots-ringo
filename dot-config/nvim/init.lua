@@ -79,6 +79,9 @@ end, {
 	desc = "Delete inactive plugins.",
 })
 
+-- List plugins.
+vim.keymap.set("n", "<Leader>lp", function() vim.pack.update(nil, { offline = true }) end, { desc = "List plugins." })
+
 -- Update plugins (with a confirmation buffer).
 vim.keymap.set("n", "<Leader>up", vim.pack.update, { desc = "Update plugins." })
 
