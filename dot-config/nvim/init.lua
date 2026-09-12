@@ -96,10 +96,10 @@ vim.keymap.set("n", "<Leader>x", "<Cmd>bdelete<CR>", { desc = "Delete current bu
 -- A good editor can also be a good-looking editor.
 -- =============================================================================
 
--- tokyonight.nvim
+-- tokyonight
 -- A clean, dark colorscheme, source of asthetics.
 vim.pack.add({{
-	name = "tokyonight.nvim",
+	name = "tokyonight",
 	src = "https://github.com/folke/tokyonight.nvim",
 }})
 require("tokyonight").setup({
@@ -120,10 +120,10 @@ require("tokyonight").setup({
 })
 vim.cmd.colorscheme("tokyonight")
 
--- mini.nvim
+-- mini
 -- A collection of small, focused modules.
 vim.pack.add({{
-	name = "mini.nvim",
+	name = "mini",
 	src = "https://github.com/nvim-mini/mini.nvim",
 }})
 require("mini.icons").setup({
@@ -143,10 +143,10 @@ require("mini.icons").setup({
 })
 MiniIcons.mock_nvim_web_devicons()
 
--- bufferline.nvim
+-- bufferline
 -- Most popular and mature tabline for NeoVim.
 vim.pack.add({{
-	name = "bufferline.nvim",
+	name = "bufferline",
 	src = "https://github.com/akinsho/bufferline.nvim",
 }})
 require("bufferline").setup({
@@ -172,11 +172,11 @@ vim.keymap.set("n", "<Leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
 vim.keymap.set("n", "<Leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
 vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLineGoToBuffer -1<CR>", opts)
 
--- lualine.nvim
+-- lualine
 -- A blazing fast and easy to configure Neovim statusline.
 vim.opt.showmode = false
 vim.pack.add({{
-	name = "lualine.nvim",
+	name = "lualine",
 	src = "https://github.com/nvim-lualine/lualine.nvim",
 }})
 
@@ -195,10 +195,10 @@ require("lualine").setup({
 	},
 })
 
--- alpha.nvim
+-- alpha
 -- Fancy startup dashboard. Stay cool.
 vim.pack.add({{
-	name = "alpha.nvim",
+	name = "alpha",
 	src = "https://github.com/goolord/alpha-nvim",
 }})
 local alpha = require("alpha")
@@ -230,26 +230,26 @@ dashboard.section.buttons.val = {
 }
 alpha.setup(dashboard.opts)
 
--- gitsigns.nvim
+-- gitsigns
 -- Shows Git changes in the sign column and provides Git-aware actions.
 vim.pack.add({{
-	name = "gitsigns.nvim",
+	name = "gitsigns",
 	src = "https://github.com/lewis6991/gitsigns.nvim",
 }})
 require("gitsigns").setup()
 
--- todo-comments.nvim
+-- todo-comments
 -- Highlights and searches TODO-style annotations in comments.
 vim.pack.add({{
-	name = "todo-comments.nvim",
+	name = "todo-comments",
 	src = "https://github.com/folke/todo-comments.nvim",
 }})
 require("todo-comments").setup({ signs = false })
 
--- colorizer.nvim
+-- colorizer
 -- Automatically show previews for text representing colors.
 vim.pack.add({{
-	name = "colorizer.nvim",
+	name = "colorizer",
 	src = "https://github.com/catgoose/nvim-colorizer.lua",
 }})
 require("colorizer").setup({
@@ -262,10 +262,10 @@ require("colorizer").setup({
 	}
 })
 
--- guess-indent.nvim
+-- guess-indent
 -- Automatically detects indentation settings for each buffer.
 vim.pack.add({{
-	name = "guess-indent.nvim",
+	name = "guess-indent",
 	src = "https://github.com/nmac427/guess-indent.nvim",
 }})
 require("guess-indent").setup({})
@@ -275,28 +275,28 @@ require("guess-indent").setup({})
 -- Traverse on the filetree, search for the target.
 -- =============================================================================
 
--- oil.nvim
+-- oil
 -- A file explorer that lets directories be edited like normal buffers.
 vim.pack.add({{
-	name = "oil.nvim",
+	name = "oil",
 	src = "https://github.com/stevearc/oil.nvim",
 }})
 require("oil").setup()
 vim.keymap.set("n", "-", "<Cmd>Oil<CR>", { desc = "Open parent directory." })
 
--- telescope.nvim
+-- telescope
 -- A highly extensible fuzzy finder for files, text, and more.
 local telescope_plugins = {{
-	name = "plenary.nvim",
+	name = "plenary",
 	src = "https://github.com/nvim-lua/plenary.nvim",
 }, {
-	name = "telescope.nvim",
+	name = "telescope",
 	src = "https://github.com/nvim-telescope/telescope.nvim",
 }}
 
 if vim.fn.executable("make") == 1 then
 	table.insert(telescope_plugins, {
-		name = "telescope-fzf-native.nvim",
+		name = "telescope-fzf-native",
 		src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	})
 	vim.api.nvim_create_autocmd("PackChanged", {
@@ -306,15 +306,15 @@ if vim.fn.executable("make") == 1 then
 			if kind ~= "install" and kind ~= "update" then return end
 
 			local name = ev.data.spec.name
-			if name == "telescope-fzf-native.nvim" then
+			if name == "telescope-fzf-native" then
 				local result = vim.system({ "make" }, { cwd = ev.data.path }):wait(300000)
 				if result.code ~= 0 then
 					local stdout = result.stdout or ""
 					local stderr = result.stderr or ""
 					local note = stderr ~= "" and stderr or stdout
-					vim.notify("Build failed for telescope-fzf-native.nvim:\n" .. note, vim.log.levels.ERROR)
+					vim.notify("Build failed for telescope-fzf-native:\n" .. note, vim.log.levels.ERROR)
 				else
-					vim.notify("Build succeeded for telescope-fzf-native.nvim.")
+					vim.notify("Build succeeded for telescope-fzf-native.")
 				end
 			end
 		end,
@@ -352,7 +352,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Add language intelligence: diagnostics, navigation, refactoring.
 -- =============================================================================
 
--- treesitter.nvim
+-- treesitter
 -- Integrate tree-sitter into NeoVim.
 vim.api.nvim_create_autocmd("PackChanged", {
 	group = vim.api.nvim_create_augroup("plugins-build", { clear = false }),
@@ -361,15 +361,15 @@ vim.api.nvim_create_autocmd("PackChanged", {
 		if kind ~= "install" and kind ~= "update" then return end
 
 		local name = ev.data.spec.name
-		if name == "treesitter.nvim" then
-			if not ev.data.active then vim.cmd.packadd("treesitter.nvim") end
+		if name == "treesitter" then
+			if not ev.data.active then vim.cmd.packadd("treesitter") end
 			vim.cmd("TSUpdate")
 		end
 	end,
 })
 
 vim.pack.add({{
-	name = "treesitter.nvim",
+	name = "treesitter",
 	src = "https://github.com/nvim-treesitter/nvim-treesitter",
 }})
 local treesitter = require("nvim-treesitter")
@@ -393,16 +393,16 @@ vim.api.nvim_create_autocmd("FileType", {
 	end
 })
 
--- mason.nvim
+-- mason
 -- Install and manage LSP servers, DAP servers, linters, and formatters.
 vim.pack.add({{
-	name = "lspconfig.nvim",
+	name = "lspconfig",
 	src = "https://github.com/neovim/nvim-lspconfig",
 }, {
-	name = "mason.nvim",
+	name = "mason",
 	src = "https://github.com/mason-org/mason.nvim",
 }, {
-	name = "mason-lspconfig.nvim",
+	name = "mason-lspconfig",
 	src = "https://github.com/mason-org/mason-lspconfig.nvim",
 }})
 
@@ -451,15 +451,15 @@ vim.api.nvim_create_autocmd("PackChanged", {
 		if kind ~= "install" and kind ~= "update" then return end
 
 		local name = ev.data.spec.name
-		if name == "markdown-preview.nvim" then
-			if not ev.data.active then vim.cmd.packadd("markdown-preview.nvim") end
+		if name == "markdown-preview" then
+			if not ev.data.active then vim.cmd.packadd("markdown-preview") end
 			vim.fn["mkdp#util#install"]()
 		end
 	end
 })
 
 vim.pack.add({{
-	name = "markdown-preview.nvim",
+	name = "markdown-preview",
 	src = "https://github.com/iamcco/markdown-preview.nvim",
 }})
 
@@ -472,7 +472,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Rust
 vim.pack.add({{
-	name = "rustacean.nvim",
+	name = "rustacean",
 	src = "https://github.com/mrcjkb/rustaceanvim",
 	version = vim.version.range('^9'),
 }})
@@ -487,7 +487,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Typst
 vim.pack.add({{
-	name = "typst-preview.nvim",
+	name = "typst-preview",
 	src = "https://github.com/chomosuke/typst-preview.nvim",
 }})
 
