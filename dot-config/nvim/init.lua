@@ -546,3 +546,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		})
 	end
 })
+
+-- vim:noet:sts=2:sw=2:ts=2
