@@ -2,6 +2,8 @@
 
 !.gitignore
 
+!AGENTS.md
+
 !mcp.json
 
 !themes/
