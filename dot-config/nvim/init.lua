@@ -411,8 +411,8 @@ vim.pack.add({{
 
 vim.lsp.config("tinymist", {
 	settings = {
-		exportTarget = "html",
-		typstExtraArgs = { "--features=html" },
+		exportTarget = "bundle",
+		typstExtraArgs = { "--features=html,bundle" },
 	},
 })
 
