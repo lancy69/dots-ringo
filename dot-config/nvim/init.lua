@@ -174,6 +174,10 @@ vim.keymap.set("n", "<Leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
 vim.keymap.set("n", "<Leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
 vim.keymap.set("n", "<Leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
 vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLineGoToBuffer -1<CR>", opts)
+vim.keymap.set("n", "[b", "<Cmd>BufferLineCyclePrev<CR>", opts)
+vim.keymap.set("n", "]b", "<Cmd>BufferLineCycleNext<CR>", opts)
+vim.keymap.set("n", "{B", "<Cmd>BufferLineMovePrev<CR>", opts)
+vim.keymap.set("n", "}B", "<Cmd>BufferLineMoveNext<CR>", opts)
 
 -- lualine
 -- A blazing fast and easy to configure Neovim statusline.
@@ -325,13 +329,7 @@ if vim.fn.executable("make") == 1 then
 end
 
 vim.pack.add(telescope_plugins)
-require("telescope").setup({
-	pickers = {
-		find_files = {
-			no_ignore = true,
-		},
-	},
-})
+require("telescope").setup({})
 
 local tb = require("telescope.builtin")
 vim.keymap.set("n", "<Leader>fa", function() tb.find_files({ hidden = true }) end, { desc = "Find all files." })
