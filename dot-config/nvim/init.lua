@@ -174,10 +174,10 @@ vim.keymap.set("n", "<Leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
 vim.keymap.set("n", "<Leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
 vim.keymap.set("n", "<Leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
 vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLineGoToBuffer -1<CR>", opts)
-vim.keymap.set("n", "[b", "<Cmd>BufferLineCyclePrev<CR>", opts)
-vim.keymap.set("n", "]b", "<Cmd>BufferLineCycleNext<CR>", opts)
-vim.keymap.set("n", "{B", "<Cmd>BufferLineMovePrev<CR>", opts)
-vim.keymap.set("n", "}B", "<Cmd>BufferLineMoveNext<CR>", opts)
+vim.keymap.set("n", "<Leader>[b", "<Cmd>BufferLineCyclePrev<CR>", opts)
+vim.keymap.set("n", "<Leader>]b", "<Cmd>BufferLineCycleNext<CR>", opts)
+vim.keymap.set("n", "<Leader>{B", "<Cmd>BufferLineMovePrev<CR>", opts)
+vim.keymap.set("n", "<Leader>}B", "<Cmd>BufferLineMoveNext<CR>", opts)
 
 -- lualine
 -- A blazing fast and easy to configure Neovim statusline.
@@ -409,8 +409,8 @@ vim.pack.add({{
 
 vim.lsp.config("tinymist", {
 	settings = {
-		exportTarget = "bundle",
-		typstExtraArgs = { "--features=html,bundle" },
+		exportTarget = "html",
+		typstExtraArgs = { "--features=html" },
 	},
 })
 
