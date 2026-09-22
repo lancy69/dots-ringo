@@ -417,8 +417,10 @@ vim.lsp.config("tinymist", {
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"gh_actions_ls",
+		"cssls",
 		"denols",
+		"gh_actions_ls",
+		"html",
 		"jsonls",
 		"lua_ls",
 		"ruff",
