@@ -1,0 +1,8 @@
+modelRoles:
+  default: deepseek/deepseek-flash:high
+symbolPreset: nerd
+composer:
+  shape: band
+theme:
+  dark: tokyonight-storm
+setupVersion: 2

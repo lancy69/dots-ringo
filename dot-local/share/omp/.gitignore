@@ -1,0 +1,6 @@
+*
+
+!.gitignore
+!config.yml
+!themes/
+!themes/tokyonight-storm.json
