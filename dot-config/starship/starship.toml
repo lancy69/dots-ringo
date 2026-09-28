@@ -83,7 +83,7 @@ symbol = "󱇶 "
 symbol = " "
 
 [git_branch]
-symbol = " "
+symbol = " "
 
 [git_commit]
 tag_symbol = '  '
