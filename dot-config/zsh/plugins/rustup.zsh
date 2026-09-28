@@ -1,5 +1,5 @@
 if (( ! $+commands[rustup] )); then
-	print -P "%B%F{yellow}[WARNING] rustup: binary not exist, skipping plugin...%f%b"
+	[[ ${RINGO_SUPPRESS_WARNING:-} == true ]] || print -P "%B%F{yellow}[WARNING] rustup: binary not exist, skipping plugin...%f%b"
 	return 0
 fi
 

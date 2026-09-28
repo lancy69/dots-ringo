@@ -44,6 +44,7 @@ prepend_path() {
 prepend_path "${XDG_DATA_HOME%/*}/bin"
 
 # Source plugin scripts, setup every program.
+export RINGO_SUPPRESS_WARNING=true
 for plugin in "$XDG_CONFIG_HOME/zsh/plugins"/*.zsh(N); do
 	source "$plugin"
 done
