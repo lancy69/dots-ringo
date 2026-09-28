@@ -1,5 +1,5 @@
 if (( ! $+commands[nvim] )); then
-	[[ ${RINGO_SUPPRESS_WARNING:-} == true ]] || print -P "%B%F{yellow}[WARNING] nvim: binary not exist, skipping plugin...%f%b"
+	warn "nvim: command not exist, skipping plugin..."
 	return 0
 fi
 

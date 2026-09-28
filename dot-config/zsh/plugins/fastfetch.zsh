@@ -1,5 +1,5 @@
 if (( ! $+commands[fastfetch] )); then
-	[[ ${RINGO_SUPPRESS_WARNING:-} == true ]] || print -P "%B%F{yellow}[WARNING] fastfetch: binary not exist, skipping plugin...%f%b"
+	warn "fastfetch: command not exist, skipping plugin..."
 	return 0
 fi
 

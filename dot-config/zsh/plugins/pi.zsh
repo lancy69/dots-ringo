@@ -1,5 +1,5 @@
 if (( ! $+commands[pi] )); then
-	[[ ${RINGO_SUPPRESS_WARNING:-} == true ]] || print -P "%B%F{yellow}[WARNING] pi: binary not exist, skipping plugin...%f%b"
+	warn "pi: command not exist, skipping plugin..."
 	return 0
 fi
 

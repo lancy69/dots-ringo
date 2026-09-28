@@ -1,5 +1,5 @@
 if (( ! $+commands[yazi] )); then
-	[[ ${RINGO_SUPPRESS_WARNING:-} == true ]] || print -P "%B%F{yellow}[WARNING] yazi: binary not exist, skipping plugin...%f%b"
+	warn "yazi: command not exist, skipping plugin..."
 	return 0
 fi
 

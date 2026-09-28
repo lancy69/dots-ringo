@@ -1,5 +1,5 @@
 if (( ! $+commands[fzf] )); then
-	[[ ${RINGO_SUPPRESS_WARNING:-} == true ]] || print -P "%B%F{yellow}[WARNING] fzf: binary not exist, skipping plugin...%f%b"
+	warn "fzf: command not exist, skipping plugin..."
 	return 0
 fi
 

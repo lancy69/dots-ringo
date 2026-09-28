@@ -37,19 +37,24 @@ if [[ -z "$HOMEBREW_PREFIX" ]] && [[ -x "/opt/homebrew/bin/brew" ]]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# Define some helper functions.
 prepend_path() {
 	[[ -z "$1" ]] || (( $path[(Ie)$1] )) || path=("$1" $path)
 }
+warn() {
+	[[ $suppress_warning == true ]] || print -P -u 2 -- "%B%F{yellow}[WARNING] $1%f%b"
+}
+
 # Add local binaries to $PATH.
 prepend_path "${XDG_DATA_HOME%/*}/bin"
 
 # Source plugin scripts, setup every program.
-export RINGO_SUPPRESS_WARNING=true
 for plugin in "$XDG_CONFIG_HOME/zsh/plugins"/*.zsh(N); do
-	source "$plugin"
+	suppress_warning=true source "$plugin"
 done
 
 unfunction prepend_path
+unfunction warn
 
 # Enable Vi mode.
 bindkey -v
