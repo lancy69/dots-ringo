@@ -3,6 +3,8 @@ font-family = "Noto Emoji"
 font-feature = "-calt, +cv01, +cv02, +cv04"
 font-size = 15
 
+keybind = cmd+enter=unbind
+
 macos-non-native-fullscreen = visible-menu
 
 theme = "TokyoNight Storm"
