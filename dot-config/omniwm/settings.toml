@@ -280,6 +280,14 @@ layout = "float"
 bundleId = "io.mpv"
 layout = "float"
 
+[[appRules]]
+bundleId = "io.github.clash-verge-rev.clash-verge-rev"
+layout = "float"
+
+[[appRules]]
+bundleId = "org.hammerspoon.Hammerspoon"
+layout = "float"
+
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleScratchpad.1"
