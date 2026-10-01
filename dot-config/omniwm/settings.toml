@@ -288,6 +288,14 @@ layout = "float"
 bundleId = "org.hammerspoon.Hammerspoon"
 layout = "float"
 
+[[appRules]]
+bundleId = "org.pqrs.Karabiner-Elements.Settings"
+layout = "float"
+
+[[appRules]]
+bundleId = "com.pais.handy"
+layout = "float"
+
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleScratchpad.1"
