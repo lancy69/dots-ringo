@@ -429,7 +429,6 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"perlnavigator",
 		"ruff",
-		"taplo",
 		"tinymist",
 		"ts_ls",
 		"ty",
