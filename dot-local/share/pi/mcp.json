@@ -1,9 +1,5 @@
 {
   "mcpServers": {
-    "codegraph": {
-      "command": "codegraph",
-      "args": ["serve", "--mcp"]
-    },
     "github": {
       "url": "https://api.githubcopilot.com/mcp/",
       "headers": {
