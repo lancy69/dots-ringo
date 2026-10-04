@@ -3,7 +3,7 @@ monitorDwindleOverrides = []
 monitorGapOverrides = []
 monitorNiriOverrides = []
 monitorOrientationOverrides = []
-schemaVersion = 3
+schemaVersion = 4
 
 [appearance]
 mode = "dark"
@@ -98,11 +98,13 @@ alwaysCenterSingleColumn = false
 centerFocusedColumn = "never"
 containerPrimarySpanPresets = [0.3333333333333333, 0.5, 0.6666666666666666]
 defaultContainerPrimarySpan = 0.5
+edgeGaps = true
 infiniteLoop = false
 singleWindowFit = "fill"
 visibleContainerCount = 2
 
 [overview]
+enabled = true
 invertScrollDirection = false
 matchFocusBorder = true
 mouseScrollSpeed = 1.0
@@ -167,6 +169,7 @@ excludedBundleIDs = []
 height = 24.0
 hideEmptyWorkspaces = false
 hideInNativeFullscreen = false
+hoverPreviewsEnabled = true
 notchActiveZoneWidth = 180.0
 notchMode = "moveBelowMenuBar"
 position = "overlappingMenuBar"
@@ -266,34 +269,55 @@ minWidth = 660.0
 
 [[appRules]]
 bundleId = "com.neovide.neovide"
+id = "016E8C10-7F59-4D91-A8DC-0CD81020E9C0"
 layout = "float"
 
 [[appRules]]
 bundleId = "org.keepassxc.keepassxc"
+id = "F2630578-7180-4541-8924-13168156DA39"
 layout = "float"
 
 [[appRules]]
 bundleId = "com.colliderli.iina"
+id = "D6C5C20E-5A80-42F0-B53E-6B54DACEBFE0"
 layout = "float"
 
 [[appRules]]
 bundleId = "io.mpv"
+id = "E81F5C50-60B3-41FD-BD21-05A181D1048C"
 layout = "float"
 
 [[appRules]]
 bundleId = "io.github.clash-verge-rev.clash-verge-rev"
+id = "8F53CA7B-4A90-478E-A74D-3834392DF4E4"
 layout = "float"
 
 [[appRules]]
 bundleId = "org.hammerspoon.Hammerspoon"
+id = "CCD90386-4A1B-490A-B776-2E1B48FB7B1D"
 layout = "float"
 
 [[appRules]]
 bundleId = "org.pqrs.Karabiner-Elements.Settings"
+id = "404640D4-F77B-4154-AAC3-6FAFB4B6E150"
 layout = "float"
 
 [[appRules]]
 bundleId = "com.pais.handy"
+id = "903BD820-AFD1-4935-A829-9D28C9E3BDA1"
+layout = "float"
+
+[[appRules]]
+bundleId = "com.valvesoftware.steam"
+id = "051FD9A0-2FF4-4C66-8BDD-52E6AEBEA531"
+layout = "float"
+
+[[appRules]]
+bundleId = "com.tencent.xinWeChat"
+layout = "float"
+
+[[appRules]]
+bundleId = "com.apple.finder"
 layout = "float"
 
 [[hotkeys]]
@@ -1001,7 +1025,7 @@ binding = "Unassigned"
 id = "preselectClear"
 
 [[hotkeys]]
-binding = "Option+Space"
+binding = "Unassigned"
 id = "openCommandPalette"
 
 [[hotkeys]]
@@ -1023,6 +1047,14 @@ id = "closeFocusedWindow"
 [[hotkeys]]
 binding = "Control+Option+M"
 id = "openMenuAnywhere"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "setWindowMark"
+
+[[hotkeys]]
+binding = "Unassigned"
+id = "removeWindowMark"
 
 [[hotkeys]]
 binding = "Unassigned"
