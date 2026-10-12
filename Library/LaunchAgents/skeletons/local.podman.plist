@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<!-- User's Environment Variables -->
+		<key>XDG_CONFIG_HOME</key>
+		<string>$XDG_CONFIG_HOME</string>
+	</dict>
+	<key>Label</key>
+	<string>local.podman</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/homebrew/bin/podman</string>
+		<string>machine</string>
+		<string>start</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/opt/homebrew/var/log/podman.log</string>
+	<key>StandardOutPath</key>
+	<string>/opt/homebrew/var/log/podman.log</string>
+</dict>
+</plist>
