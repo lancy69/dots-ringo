@@ -1,5 +1,5 @@
 modelRoles:
-  default: deepseek/deepseek-flash:high
+  default: openai-codex/gpt-6.1-sol:low
 symbolPreset: nerd
 composer:
   shape: band
