@@ -1,6 +1,7 @@
 *
-
 !.gitignore
-!config.yml
-!themes/
-!themes/tokyonight-storm.json
+
+!agent/
+!agent/config.yml
+!agent/themes/
+!agent/themes/tokyonight-storm.json
