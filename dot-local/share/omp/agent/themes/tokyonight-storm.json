@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/can1357/oh-my-pi/main/packages/coding-agent/theme-schema.json",
+	"$schema": "https://github.com/can1357/oh-my-pi/raw/refs/heads/main/packages/tui/src/theme/theme-schema.json",
 	"name": "tokyonight-storm",
 	"vars": {
 		"bg": "#24283b",
@@ -51,8 +51,8 @@
 		"mdHeading": "purple",
 		"mdLink": "cyan",
 		"mdLinkUrl": "muted",
-		"mdCode": "fg",
-		"mdCodeBlock": "fg",
+		"mdCode": "blue",
+		"mdCodeBlock": "green",
 		"mdCodeBlockBorder": "border",
 		"mdQuote": "muted",
 		"mdQuoteBorder": "border",
