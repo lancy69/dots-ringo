@@ -437,6 +437,9 @@ require("mason-lspconfig").setup({
 	}
 })
 
+-- Explicitly enable sourcekit LSP that comes with Swift SDK.
+vim.lsp.enable("sourcekit")
+
 -- =============================================================================
 -- SECTION 6: Autocomplete & Snippets.
 -- I am too lazy to type everything myself.
