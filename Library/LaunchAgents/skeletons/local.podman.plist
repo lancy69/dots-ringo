@@ -18,6 +18,8 @@
 		<string>machine</string>
 		<string>start</string>
 	</array>
+	<key>AbandonProcessGroup</key>
+	<true/>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>StandardErrorPath</key>
