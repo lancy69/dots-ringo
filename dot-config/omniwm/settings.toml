@@ -320,6 +320,14 @@ layout = "float"
 bundleId = "com.apple.finder"
 layout = "float"
 
+[[appRules]]
+bundleId = "com.apple.QuickTimePlayerX"
+layout = "float"
+
+[[appRules]]
+bundleId = "com.apple.Preview"
+layout = "float"
+
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleScratchpad.1"
