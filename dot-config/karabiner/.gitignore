@@ -1,0 +1,6 @@
+*
+!.gitignore
+
+!assets/
+!assets/complex_modifications/
+!assets/complex_modifications/lancy.json
