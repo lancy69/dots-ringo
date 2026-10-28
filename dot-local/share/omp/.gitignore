@@ -3,5 +3,7 @@
 
 !agent/
 !agent/config.yaml
+!agent/mcp.json
 !agent/themes/
+!agent/themes/tokyonight-day.json
 !agent/themes/tokyonight-storm.json
