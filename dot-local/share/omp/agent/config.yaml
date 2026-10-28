@@ -1,11 +1,25 @@
-modelRoles:
-  default: openai-codex/gpt-6.1-sol:low
-  plan: openai-codex/gpt-6-astra
-symbolPreset: nerd
-composer:
-  shape: band
+setupVersion: 2
 theme:
   dark: tokyonight-storm
-setupVersion: 2
+  light: tokyonight-day
+symbolPreset: nerd
+colorBlindMode: false
+composer:
+  shape: band
+  tokenRate: true
+modelRoles:
+  default: openai-codex/gpt-6.1-sol
 title:
   icons: boring
+dev:
+  autoqaConsent: granted
+codexResets:
+  autoRedeem: "no"
+memory:
+  backend: mnemopi
+defaultThinkingLevel: auto
+tui:
+  codexResetFireworks: true
+skills:
+  customDirectories:
+    - ~/Projects/skills/skills
