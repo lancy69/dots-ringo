@@ -56,6 +56,9 @@ vim.opt.winborder = "rounded"
 vim.opt.list = true
 vim.opt.listchars = { lead = "·", nbsp = "␣", tab = "» ", trail = "~" }
 
+-- Hide end-of-buffer markers.
+vim.opt.fillchars:append({ eob = " " })
+
 -- =============================================================================
 -- SECTION 2: Keymaps
 -- General keymaps that make life easier. Plugins should set their own keymaps.
@@ -106,12 +109,20 @@ vim.pack.add({{
 	src = "https://github.com/folke/tokyonight.nvim",
 }})
 require("tokyonight").setup({
-	style = "storm",
+	style = "night",
+	transparent = true,
+	styles = {
+		sidebars = "transparent",
+		floats = "transparent",
+	},
+	on_colors = function(c)
+		c.bg_statusline = "NONE"
+	end,
 	on_highlights = function(hl, c)
-		hl.BufferLineIndicatorSelected = {
-			bg = c.bg,
-			fg = c.git.change,
-		}
+		-- hl.BufferLineIndicatorSelected = {
+		-- 	bg = c.bg,
+		-- 	fg = c.git.change,
+		-- }
 		hl["@comment.documentation"] = {
 			fg = c.dark5,
 			italic = true,
@@ -153,14 +164,14 @@ vim.pack.add({{
 	src = "https://github.com/akinsho/bufferline.nvim",
 }})
 require("bufferline").setup({
-	highlights = {
-		fill = {
-			bg = {
-				attribute = "bg",
-				highlight = "Pmenu",
-			}
-		},
-	},
+	-- highlights = {
+	-- 	fill = {
+	-- 		bg = {
+	-- 			attribute = "bg",
+	-- 			highlight = "Pmenu",
+	-- 		}
+	-- 	},
+	-- },
 })
 
 local opts = { noremap = true, silent = true }
