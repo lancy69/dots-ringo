@@ -1,7 +1,7 @@
 setupVersion: 2
 theme:
-  dark: tokyonight-storm
-  light: tokyonight-day
+  dark: dark-tokyo-night
+  light: light-tokyo-night
 symbolPreset: nerd
 colorBlindMode: false
 composer:
