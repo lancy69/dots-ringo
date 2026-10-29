@@ -20,6 +20,3 @@ memory:
 defaultThinkingLevel: auto
 tui:
   codexResetFireworks: true
-skills:
-  customDirectories:
-    - ~/Projects/skills/skills
