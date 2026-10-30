@@ -164,6 +164,9 @@ vim.pack.add({{
 	src = "https://github.com/akinsho/bufferline.nvim",
 }})
 require("bufferline").setup({
+	options = {
+		separator_style = { "", "" },
+	},
 	-- highlights = {
 	-- 	fill = {
 	-- 		bg = {
