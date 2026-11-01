@@ -1,4 +1,3 @@
-setupVersion: 2
 theme:
   dark: dark-tokyo-night
   light: light-tokyo-night
@@ -7,16 +6,715 @@ colorBlindMode: false
 composer:
   shape: band
   tokenRate: true
-modelRoles:
-  default: openai-codex/gpt-6.1-sol
+  recallClearedDrafts: true
+  predictions: false
+statusLine:
+  preset: default
+  separator: powerline-thin
+  contextLine: embedded
+  sessionAccent: true
+  transparent: false
+  compactThinkingLevel: true
+  showHookStatus: true
+  leftSegments:
+    - vim
+    - model
+    - mode
+    - path
+    - git
+    - pr
+  rightSegments:
+    - session_name
+    - token_total
+    - cost
+    - context_pct
+  segmentOptions: {}
+tui:
+  resizeScrollback: rebuild
+  completeScrollback: false
+  textSizing: true
+  renderMermaid: true
+  renderSvg: true
+  autoGraph: auto
+  reactions: true
+  codexResetFireworks: true
+  titleState: true
+  titleSpinner: braille
+  hyperlinks: auto
+  mouse: false
+  tight: false
+  imeSafeCursor: false
+  vimMode: false
+  vimModeDisplay: text
+  maxInlineImageColumns: 100
+  maxInlineImageRows: 20
+  maxInlineImages: 8
+terminal:
+  showProgress: false
+  programStatus: true
+  showImages: true
+display:
+  shimmer: classic
+  pinnedAgents: collapsed
+  subagentLivePreview: false
+  smoothStreaming: true
+  hideToolActivity: false
+  showTokenUsage: true
+  showTurnTime: true
+  cacheMissMarker: false
+  advisorCollapsedLines: 0
+  collapseCompacted: true
+showHardwareCursor: true
+task:
+  showResolvedModelBadge: false
+  eager: default
+  batch: true
+  file: false
+  structured: false
+  speculativeLaunch: true
+  enableEffort: false
+  perCallModel: "off"
+  perCallModelAllow: []
+  maxConcurrency: 32
+  enableLsp: false
+  maxRecursionDepth: 2
+  maxRuntimeMs: 0
+  completionProbe: true
+  agentIdleTtlMs: 420000
+  softRequestBudget: 200
+  softRequestBudgetNotice: true
+  maxEffort: max
+  prewalk: false
+  isolation:
+    enabled: false
+    apply: true
+    merge: patch
+    commits: generic
+  agentSoftRequestBudget: {}
+  disabledAgents: []
+  agentModelOverrides: {}
+  agentServiceTierOverrides: {}
+  agentCompactionThresholdOverrides: {}
+  agentAccountPools: {}
+  agentPrewalk: {}
+  agentAdvisor: {}
 title:
   icons: boring
-dev:
-  autoqaConsent: granted
-codexResets:
-  autoRedeem: "no"
-memory:
-  backend: mnemopi
+  generator: fork
+  refreshOnReplan: true
+  refreshAfterPrompts: 0
+images:
+  autoResize: true
+  blockImages: false
+  describeForTextModels: true
+  urls:
+    enabled: false
+    backends:
+      - provider-files
+      - tailscale
+      - cloudflared
+      - litterbox
+    ttlHours: 72
+    bindHost: 127.0.0.1
+    sshRemotePort: 8787
+    options: {}
+    credentials: {}
+  questionTimeoutMs: 300000
 defaultThinkingLevel: auto
-tui:
-  codexResetFireworks: true
+hideThinkingBlock: false
+expandThinkingBlocks: false
+proseOnlyThinking: true
+omitThinking: false
+externalThinking: false
+model:
+  loopGuard:
+    enabled: true
+    checkAssistantContent: true
+    toolCallReminder: true
+  toolCallLoopGuard:
+    enabled: true
+    threshold: 5
+    exemptTools:
+      - wait
+providers:
+  autoThinkingMaxEffort: xhigh
+  anthropic:
+    serverSideFallback: false
+    slowMode: "off"
+  maxInFlightRequests: {}
+  ollama-cloud:
+    maxConcurrency: 3
+  webSearchTimeoutSeconds: 60
+  antigravityEndpoint: auto
+  fetch: auto
+  fireworksTier: standard
+  tinyModelDevice: default
+  tinyModelDtype: default
+  kimiApiFormat: auto
+  openaiWebsockets: auto
+  openaiLiveSteering: false
+  muse-code:
+    storeResponses: false
+  openai-codex:
+    daybreak: true
+  cacheRetention: auto
+  cacheWarming: idle
+  openrouterVariant: default
+  streamFirstEventTimeoutSeconds: -1
+  streamIdleTimeoutSeconds: -1
+temperature: -1
+topP: -1
+topK: -1
+minP: -1
+presencePenalty: -1
+repetitionPenalty: -1
+textVerbosity: medium
+tier:
+  openai: none
+  anthropic: none
+  google: none
+  subagent: inherit
+  advisor: none
+modelRoleStorage: global
+inlineToolDescriptors: auto
+includeModelInPrompt: true
+includeWorkspaceTree: false
+skillful: true
+personality: default
+retry:
+  maxRetries: 10
+  maxDelayMs: 300000
+  waitForUsageReset: false
+  modelFallback: true
+  fallbackOn: any
+  rateLimitWalksChain: false
+  usageAwareFallback: false
+  usageReservePct: 10
+  usageReservePolicy: confirm
+  fallbackChains: {}
+  fallbackRevertPolicy: cooldown-expiry
+  enabled: true
+  baseDelayMs: 500
+advisor:
+  enabled: false
+  syncBacklog: "off"
+  immuneTurns: 3
+  continueSeverity: concern
+  reviewMode: turn
+  reviewInterval: 1
+  maxNotesPerUpdate: 4
+  evictStaleResults: true
+prewalk:
+  enabled: false
+  from: "@default"
+  into: "@smol"
+  auto: "off"
+  autoTarget: "@smol"
+steeringMode: one-at-a-time
+followUpMode: one-at-a-time
+interruptMode: immediate
+loop:
+  mode: prompt
+  conditionTimeoutMs: 30000
+doubleEscapeAction: rewind
+input:
+  bareExitOnEmptySession: true
+  bareSlashCommands: false
+treeFilterMode: default
+autocompleteMaxVisible: 10
+spelling:
+  typoDetection: true
+  autocomplete: auto
+  autocorrect: false
+emojiAutocomplete: true
+paste:
+  largeMenuThreshold: 100
+tools:
+  approval: {}
+  approvalMode: yolo
+  restrictedFolders: []
+  format: auto
+  artifactSpillThreshold: 50
+  artifactTailBytes: 20
+  artifactHeadBytes: 20
+  outputMaxColumns: 768
+  artifactTailLines: 500
+  artifactMaxBytes: 16
+  intentTracing: true
+  abortOnFabricatedResult: true
+  speculativeExecution:
+    enabled: false
+    maxInFlight: 2
+  maxTimeout: 0
+  xdev: true
+  xdevDocs: catalog
+  xdevInlineDevices: []
+  xdevNotices: true
+completion:
+  notify: "on"
+error:
+  notify: "off"
+ask:
+  timeout: 0
+  notify: "on"
+  enabled: true
+recap:
+  enabled: true
+  idleSeconds: 240
+stt:
+  enabled: false
+  submitTrigger: never
+  language: en
+collab:
+  relayUrl: wss://my.omp.sh
+  webUrl: ""
+  displayName: ""
+  autoStart: "off"
+share:
+  serverUrl: https://my.omp.sh/s
+  store: blob
+  redactSecrets: true
+stream:
+  serverUrl: https://live.omp.sh
+  redactPatterns: []
+magicKeywords:
+  enabled: true
+  ultrathink: true
+  orchestrate: true
+  workflow: true
+  jevify: true
+autoResume: false
+startup:
+  quiet: false
+  showSplash: false
+  setupWizard: true
+  checkUpdate: true
+  changelogMode: summary
+update:
+  channel: stable
+marketplace:
+  autoUpdate: notify
+session:
+  worktreeScope: repo
+power:
+  sleepPrevention: idle
+features:
+  unexpectedStopDetection: mechanical
+git:
+  enabled: true
+skills:
+  registryUrl: https://skills.omp.sh
+  enableSkillCommands: true
+  enabled: true
+  enableCodexUser: false
+  enableClaudeUser: false
+  enableClaudeProject: true
+  enablePiUser: true
+  enablePiProject: true
+  enableAgentsUser: true
+  enableAgentsProject: true
+  customDirectories: []
+  ignoredSkills: []
+  includeSkills: []
+workspace:
+  additionalDirectories: []
+contextFiles:
+  extra: []
+contextPromotion:
+  enabled: false
+extendedContext: false
+branchSummary:
+  enabled: false
+  reserveTokens: 16384
+compaction:
+  enabled: true
+  experimentalContextManagement: false
+  midTurnEnabled: true
+  methodOrder:
+    - remote
+    - snapcompact
+    - handoff
+    - shake
+    - soft
+  thresholdPercent: -1
+  thresholdTokens: -1
+  handoffSaveToDisk: false
+  remoteStreamingV2Enabled: true
+  asyncEnabled: true
+  idleEnabled: false
+  idleThresholdTokens: 200000
+  idleTimeoutSeconds: 300
+  supersedeReads: true
+  dropUseless: true
+  modelThresholds: {}
+  modelThresholdsEnabled: true
+  keepRecentTokens: 20000
+  autoContinue: true
+  v2RetainedMessageBudget: 64000
+ttsr:
+  enabled: true
+  judge: auto
+  contextMode: discard
+  interruptMode: always
+  repeatMode: once
+  repeatGap: 10
+  builtinRules: true
+  disabledRules: []
+snapcompact:
+  systemPrompt: none
+  toolResults: false
+  shape: auto
+memory:
+  backend: "off"
+autolearn:
+  enabled: false
+  autoContinue: false
+  minToolCalls: 5
+mnemopi:
+  scoping: per-project
+  embeddingVariant: en
+  autoRecall: true
+  autoRetain: true
+  polyphonicRecall: false
+  enhancedRecall: false
+  proactiveLinking: false
+  noEmbeddings: false
+  llmMode: smol
+  retainEveryNTurns: 4
+  recallLimit: 8
+  recallContextTurns: 3
+  recallMaxQueryChars: 4000
+  injectionTokenLimit: 5000
+  debug: false
+hindsight:
+  apiUrl: http://localhost:8888
+  scoping: per-project-tagged
+  autoRecall: true
+  autoRetain: true
+  retainMode: full-session
+  mentalModelsEnabled: true
+  mentalModelAutoSeed: true
+  retainEveryNTurns: 3
+  retainOverlapTurns: 2
+  retainContext: omp
+  recallBudget: mid
+  recallMaxTokens: 1024
+  recallContextTurns: 1
+  recallMaxQueryChars: 800
+  recallTypes:
+    - world
+    - experience
+  debug: false
+  requestTimeoutMs: 30000
+  reflectTimeoutMs: 120000
+  recallTimeoutMs: 30000
+  retainTimeoutMs: 60000
+  mentalModelMaxRenderChars: 16000
+sharpshooter:
+  minPromptLength: 16
+  intervalMinutes: 5
+  injectionTokenLimit: 15000
+edit:
+  mode: hashline
+  fuzzyMatch: true
+  fuzzyThreshold: 0.95
+  streamingAbort: false
+  recoverInlineEdits: true
+  blockAutoGenerated: true
+  enforceSeenLines: true
+  blackbox:
+    enabled: false
+  autoRepair:
+    enabled: false
+  modelVariants: {}
+readLineNumbers: false
+read:
+  defaultLimit: 300
+  renderMarkdown: false
+  toolResultPreview: false
+  summarize:
+    enabled: true
+    prose: false
+    minBodyLines: 4
+    minCommentLines: 6
+    minTotalLines: 100
+    unfoldUntil: 50
+    unfoldLimit: 100
+lsp:
+  enabled: true
+  lazy: true
+  shared: true
+  formatOnWrite: false
+  diagnosticsOnWrite: true
+  diagnosticsOnEdit: false
+  diagnosticsDeduplicate: true
+  requestTimeout: 10
+bash:
+  enabled: true
+  allowCompoundCommands: false
+  autoBackground:
+    enabled: true
+    thresholdMs: 60000
+  gitGuard: false
+  patterns: []
+  direnv: auto
+  direnvLoadTimeoutMs: 30000
+bashInterceptor:
+  enabled: false
+  patterns:
+    - pattern: "^\\s*(?:(?:head|tail|less|more)\\s+|cat\\s+(?!\\s|(?:[02-9]>{1,2}\\|?\\s*[^\\s>|]\\S*\\s+)*(?:<<|1?>(?!&)|&>)))"
+      tool: read
+      message: "Use the `read` tool instead of cat/head/tail. It provides better context and handles binary files."
+    - pattern: ^\s*(grep|rg|ripgrep|ag|ack)\s+
+      tool: grep
+      message: "Use the `grep` tool instead of grep/rg. It respects .gitignore and provides structured output."
+    - pattern: ^\s*(find|fd|locate)\s+.*(-name|-iname|-type|--type|-glob)
+      tool: glob
+      message: "Use the `glob` tool instead of find/fd. It respects .gitignore and is faster for glob patterns."
+    - pattern: ^\s*sed\s+(-i|--in-place)
+      tool: edit
+      message: "Use the `edit` tool instead of sed -i. It provides diff preview and fuzzy matching."
+    - pattern: "^\\s*perl\\s+.*-[pn]?i"
+      tool: edit
+      message: "Use the `edit` tool instead of perl -i. It provides diff preview and fuzzy matching."
+    - pattern: ^\s*awk\s+.*-i\s+inplace
+      tool: edit
+      message: "Use the `edit` tool instead of awk -i inplace. It provides diff preview and fuzzy matching."
+    - pattern: "^\\s*(?:(?:echo|printf)\\s+|cat\\s*<<|cat(?=\\s+(?:\\d+|&)?>)\\s+)(?:(?:\\\\[\\s\\S]|\\$\\((?:[^()\"'`]|\"[^\"]*\"|'[^']*'|`[^`]*`|\\([^()]*\\))*\\)|\\$\\{[^{}]*\\}|`[^`]*`|\\$(?!\\((?:[^()\"'`]|\"[^\"]*\"|'[^']*'|`[^`]*`|\\([^()]*\\))*\\)|\\{[^{}]*\\})|`(?![^`]*`)|[^\"'>;&|\\n\\\\$`]|(?<=[<>])&|(?<![<>])&(?=>)|(?<=(?:^|\\s)[02-9])>{1,2}\\|?|\"[^\"]*\"|'[^']*')|(?<!\\||>|(?:^|\\s)[02-9])>{1,2}\\|?\\s*(?:\"/dev/(?:null|tty|stdout|stderr)\"|'/dev/(?:null|tty|stdout|stderr)'|/dev/(?:null|tty|stdout|stderr))(?=[\\s;&|]|$))*(?<!\\||>|(?:^|\\s)[02-9])>{1,2}\\|?\\s*(?!(?:\"/dev/(?:null|tty|stdout|stderr)\"|'/dev/(?:null|tty|stdout|stderr)'|/dev/(?:null|tty|stdout|stderr))(?:[\\s;&|]|$))[$\\w./~\"'-]"
+      tool: write
+      message: "Use the `write` tool instead of echo/cat redirection. It handles encoding and provides confirmation. `write` replaces the whole file; to append to an existing file, use `edit` to insert after its last line."
+    - pattern: ^\s*nohup\s+|(?<!&)\&\s*$
+      tool: bash
+      message: "Use `bash` with `name` instead of nohup or background shell syntax so the service stays observable and managed."
+    - pattern: ^\s*(?:(?:bun|npm|pnpm|yarn)\s+(?:run\s+)?(?:dev|start)(?:\s|$)|(?:vite|next\s+dev|nuxt\s+dev|nodemon|lldb|gdb|tail\s+-f)(?:\s|$)|docker\s+compose\s+up(?!.*(?:\s-d(?:\s|$)|--detach))(?:\s|$))
+      tool: bash
+      message: "Use `bash` with `name` for services, watchers, and debuggers; inspect with `read proc://<name>`."
+    - pattern: ^\s*(?:(?:bun|npm|pnpm|yarn)\s+(?:run\s+)?\S+|cargo\s+watch|watchexec|pytest|vitest|jest|tsc)(?:.|\n)*(?:--watch|-w)(?:\s|$)
+      tool: bash
+      message: "Use `bash` with `name` for watch mode so its output, input, and lifecycle stay managed."
+shellMinimizer:
+  enabled: true
+  sourceOutlineLevel: default
+  only: []
+  except: []
+  maxCaptureBytes: 4194304
+eval:
+  py: true
+  js: true
+  autoProvision: true
+  tools:
+    enabled: true
+  workpool:
+    freshAgents: false
+  autoBackground:
+    enabled: false
+    thresholdMs: 60000
+python:
+  kernelMode: session
+  interpreter: ""
+todo:
+  enabled: true
+  reminders: true
+  remindersMax: 3
+  eager: default
+glob:
+  enabled: true
+grep:
+  enabled: true
+  contextBefore: 1
+  contextAfter: 3
+astGrep:
+  enabled: false
+astEdit:
+  enabled: true
+find:
+  enabled: auto
+debug:
+  enabled: true
+launch:
+  enabled: true
+speechgen:
+  enabled: false
+generate_image:
+  enabled: false
+computer:
+  enabled: false
+  display: active
+  maxWidth: 3840
+  maxHeight: 2400
+  backgroundFallback: takeover
+ratchet:
+  enabled: false
+archive:
+  enabled: true
+checkpoint:
+  enabled: false
+fetch:
+  enabled: true
+vault:
+  enabled: false
+github:
+  enabled: false
+  cache:
+    enabled: true
+    softTtlSec: 300
+    hardTtlSec: 604800
+web_search:
+  enabled: true
+security:
+  enabled: false
+out:
+  enabled: true
+browser:
+  enabled: true
+  relay: false
+  headless: true
+  cmux: true
+  tern: true
+  freezeOnTurnEnd: true
+  idleCloseSec: 1800
+ida:
+  enabled: true
+  python: ""
+  installDir: ""
+  maxOpen: 4
+  idleCloseSec: 900
+tasks:
+  todoClearDelay: 60
+async:
+  enabled: true
+  printWake: false
+  widgets: true
+  maxJobs: 100
+mcp:
+  enableProjectConfig: true
+  startupTimeoutMs: 250
+  renderMarkdownResults: true
+  notifications: false
+  notificationDebounceMs: 500
+extensionHandlers:
+  toolCallTimeoutMs: 30000
+  modeControl: true
+extensionRenderers:
+  assistantText: false
+dev:
+  autoqa: true
+  autoqaPush:
+    endpoint: https://qa.omp.sh/v1/grievances
+  autoqaConsent: unset
+plan:
+  enabled: true
+  defaultOnStartup: false
+  autosave: false
+goal:
+  enabled: true
+  statusInFooter: true
+  continuationModes:
+    - interactive
+isolation:
+  backend: auto
+worktree:
+  clone: true
+  cleanSource: false
+  onStart: "off"
+  onExit: keep
+commands:
+  enableClaudeUser: false
+  enableClaudeProject: true
+  enableOpencodeUser: false
+  enableOpencodeProject: true
+live:
+  voice: sol
+tts:
+  localVoice: af_heart
+  localSpeed: 1
+speech:
+  enabled: false
+  mode: assistant
+  enhanced: false
+  voice: af_heart
+  speed: 1
+codexResets:
+  autoRedeem: unset
+  minBlockedMinutes: 60
+  keepCredits: 0
+  salvageHorizonHours: 12
+claudeResets:
+  autoRedeem: unset
+  minBlockedMinutes: 60
+  keepCredits: 0
+  salvageHorizonHours: 12
+exa:
+  enabled: true
+  searchDelayMs: 1000
+searxng: null
+provider:
+  appendOnlyContext: auto
+telemetry:
+  otlpExportEnabled: true
+secrets:
+  enabled: false
+auth:
+  broker: null
+  accountPolicies: []
+enabledModels: []
+enabledProviders: []
+disabledProviders: []
+modelRoles:
+  default: openai-codex/gpt-6.1-sol
+judgment:
+  attemptTimeoutMs: 3000
+modelPresets: {}
+modelTags: {}
+modelProviderOrder: []
+cycleOrder:
+  - smol
+  - default
+  - slow
+setupVersion: 2
+thinkingBudgets:
+  minimal: 1024
+  low: 2048
+  medium: 8192
+  high: 16384
+  xhigh: 32768
+  max: 32768
+memories:
+  enabled: false
+  maxRolloutsPerStartup: 64
+  maxRolloutAgeDays: 30
+  minRolloutIdleHours: 12
+  threadScanLimit: 300
+  maxRawMemoriesForGlobal: 200
+  stage1Concurrency: 8
+  stage1LeaseSeconds: 120
+  stage1RetryDelaySeconds: 120
+  phase2LeaseSeconds: 180
+  phase2RetryDelaySeconds: 180
+  phase2HeartbeatSeconds: 30
+  rolloutPayloadPercent: 0.7
+  phase1InputTokenLimit: 4000
+  fallbackTokenLimit: 16000
+  summaryInjectionTokenLimit: 5000
+extensions: []
+disabledExtensions: []
+commit:
+  mapReduceEnabled: true
+  mapReduceThreshold: 5000
+  mapBatchTokenBudget: 16000
+  cacheEnabled: true
+  cacheTtlDays: 14
+  changelogMaxDiffChars: 120000
+gc:
+  blobs: true
+  archive: true
+  wal: true
+  coldArchiveAfterDays: 30
+  retainNewestGlobal: 20
+  retainNewestPerCwd: 10
+  stale: false
+  staleRetainNewest: 20
+  staleRetainDays: 30
+  compress: false
+  compressAfterDays: 7
+  autoCompress: false
