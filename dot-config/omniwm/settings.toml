@@ -340,6 +340,10 @@ bundleId = "com.apple.Preview"
 id = "0FC2F4A2-6227-4755-8D54-301C7609F8AE"
 layout = "float"
 
+[[appRules]]
+bundleId = "org.m0k.transmission"
+layout = "float"
+
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleScratchpad.1"
