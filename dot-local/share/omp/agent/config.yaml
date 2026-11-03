@@ -313,7 +313,8 @@ skills:
   enablePiProject: true
   enableAgentsUser: true
   enableAgentsProject: true
-  customDirectories: []
+  customDirectories:
+    - ~/Projects/skills/skills
   ignoredSkills: []
   includeSkills: []
 workspace:
@@ -536,7 +537,7 @@ launch:
 speechgen:
   enabled: false
 generate_image:
-  enabled: false
+  enabled: true
 computer:
   enabled: false
   display: active
@@ -601,7 +602,7 @@ dev:
   autoqa: true
   autoqaPush:
     endpoint: https://qa.omp.sh/v1/grievances
-  autoqaConsent: unset
+  autoqaConsent: granted
 plan:
   enabled: true
   defaultOnStartup: false
