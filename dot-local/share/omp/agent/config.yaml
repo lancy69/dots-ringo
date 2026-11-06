@@ -292,6 +292,7 @@ startup:
   changelogMode: summary
 update:
   channel: stable
+  auto: false
 marketplace:
   autoUpdate: notify
 session:
@@ -672,7 +673,7 @@ cycleOrder:
   - smol
   - default
   - slow
-setupVersion: 2
+setupVersion: 3
 thinkingBudgets:
   minimal: 1024
   low: 2048
