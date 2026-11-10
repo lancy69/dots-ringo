@@ -1,3 +1,7 @@
+# Pi
+# There are many agent harnesses, but this one is yours.
+# https://pi.dev
+
 if (( ! $+commands[pi] )); then
 	warn "pi: command not exist, skipping plugin..."
 	return 0
