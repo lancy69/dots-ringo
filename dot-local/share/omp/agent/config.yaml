@@ -628,24 +628,26 @@ commands:
 live:
   voice: sol
 tts:
-  localVoice: af_heart
+  localVoice: harper
   localSpeed: 1
 speech:
   enabled: false
   mode: assistant
   enhanced: false
-  voice: af_heart
+  voice: harper
   speed: 1
 codexResets:
-  autoRedeem: unset
   minBlockedMinutes: 60
   keepCredits: 0
   salvageHorizonHours: 12
+  autoRedeem5h: unset
+  autoRedeemWeekly: unset
 claudeResets:
-  autoRedeem: unset
   minBlockedMinutes: 60
   keepCredits: 0
   salvageHorizonHours: 12
+  autoRedeem5h: unset
+  autoRedeemWeekly: unset
 exa:
   enabled: true
   searchDelayMs: 1000
@@ -663,7 +665,7 @@ enabledModels: []
 enabledProviders: []
 disabledProviders: []
 modelRoles:
-  default: openai-codex/gpt-6.1-sol
+  default: openai-codex/gpt-6.2-sol
 judgment:
   attemptTimeoutMs: 3000
 modelPresets: {}
