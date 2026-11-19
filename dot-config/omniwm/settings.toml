@@ -387,6 +387,10 @@ bundleId = "org.m0k.transmission"
 id = "E0AFCBE9-3BE2-4956-9F9F-AA148D11EE39"
 layout = "float"
 
+[[appRules]]
+bundleId = "com.follow.clash"
+layout = "float"
+
 [[hotkeys]]
 binding = "Unassigned"
 id = "toggleScratchpad.1"
